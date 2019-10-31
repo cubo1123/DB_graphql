@@ -1,4 +1,4 @@
-const employees = [
+let employees = [
   {
     id: "11",
     name: "Enrique",
@@ -36,17 +36,17 @@ const employees = [
     endDate: "Date!"
   }
 ];
-const typeEmployee = [
+let typeEmployee = [
   { id: "235", job: "Encargado", description: "es el vergas" },
   { id: "2358", job: "Despachador", description: "el que te da las cosas" },
   { id: "235813", job: "Vendedor", description: "el que te las vende" }
 ];
-const schedules = [
+let schedules = [
   { id: "813", startTime: "Date!", endTime: "Date!" },
   { id: "81321", startTime: "Date!", endTime: "Date!" },
   { id: "8132134", startTime: "Date!", endTime: "Date!" }
 ];
-const clients = [
+let clients = [
   {
     id: "2134",
     name: "La do;a pelos",
@@ -75,7 +75,7 @@ const clients = [
     creditUsed: 500
   }
 ];
-const notes = [
+let notes = [
   {
     id: "5594",
     date: "Date!",
@@ -95,12 +95,12 @@ const notes = [
     employee: "112"
   }
 ];
-const contains = [
+let contains = [
   { id: "243392", quantity: 5, type: "Unit!", product: "753" },
   { id: "392635", quantity: 7, type: "Unit!", product: "357" },
   { id: "6351027", quantity: 9, type: "Unit!", product: "159" }
 ];
-const products = [
+let products = [
   {
     id: "753",
     name: "Picafresas",
@@ -120,22 +120,22 @@ const products = [
     onStock: 15
   }
 ];
-const units = [
+let units = [
   { id: "856", name: "Gramos" },
   { id: "698", name: "Kilos" },
   { id: "753", name: "Producto" }
 ];
-const costs = [
+let costs = [
   { id: "213", value: 5, date: "Date!", product: "753" },
   { id: "3456", value: 253.5, date: "Date!", product: "357" },
   { id: "978565", value: 756.452123, date: "Date!", product: "159" }
 ];
-const prices = [
+let prices = [
   { id: "963147", value: 758.6, date: "Date!", product: "753" },
   { id: "6789876", value: 10.5, date: "Date!", product: "357" },
   { id: "75315", value: 986, date: "Date!", product: "159" }
 ];
-const orders = [
+let orders = [
   {
     id: "4",
     provider: "Provider!",
@@ -155,7 +155,7 @@ const orders = [
     arriveDate: "Date"
   }
 ];
-const ordersContain = [
+let ordersContain = [
   {
     id: "1001",
     product: "753",
@@ -188,7 +188,7 @@ const ordersContain = [
     quantity: 3
   }
 ];
-const providers = [
+let providers = [
   { id: "5000", name: "La Rosa", telephone: "7589" },
   { id: "5001", name: "Nico", telephone: "753159" },
   { id: "666", name: "Tinajitas", telephone: "75896" }

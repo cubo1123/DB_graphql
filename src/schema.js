@@ -1,4 +1,9 @@
-const typeDef = `
+const typeDefs = `
+    enum ENUMStatus {
+        Active
+        Inactive
+    }
+
     type Query{
         employees : [Employee!]!
         clients : [Client!]!
@@ -14,10 +19,10 @@ const typeDef = `
         address: String!
         typeEmployee : TypeEmployee!
         schedule : Schedule!
-        startDate : Date!
-        status : Enum!
+        startDate : String!
+        status : ENUMStatus!
         paid : Float!
-        endDate : Date!
+        endDate : String!
     }
 
 
@@ -29,8 +34,8 @@ const typeDef = `
 
     type Schedule{
         id : ID!
-        startTime : Date!
-        endTime : Date!
+        startTime : String!
+        endTime : String!
     }
 
     type Client{
@@ -45,10 +50,10 @@ const typeDef = `
 
     type Note{
         id : ID!
-        date : Date!
+        date : String!
         client : Client!
         employee : Employee!
-    }
+    } 
 
     type NoteContain{
         id : ID!
@@ -72,22 +77,22 @@ const typeDef = `
     type Cost{
         id:ID!
         value:Float
-        date:Date!
+        date:String!
         product : Product!
     }
 
     type Price{
         id : ID!
         value : Float!
-        date : Date!
+        date : String!
         product : Product!
     }
 
     type Order{
         id : ID!
         provider : Provider!
-        creationDate : Date!
-        arriveDate : Date
+        creationDate : String!
+        arriveDate : String
     }
 
     type OrderContain{
@@ -103,3 +108,4 @@ const typeDef = `
         telephone : String!
     }
 `;
+export { typeDefs };
