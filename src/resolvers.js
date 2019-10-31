@@ -16,49 +16,49 @@ import {
 const resolvers = {
   Query: {
     employees(parent, args, ctx, info) {
-      if (args.query) {
-        return employees.find(employee => {
-          return employee.id === args.query;
+      if (args.id) {
+        return employees.filter(employee => {
+          return employee.id === args.id;
         });
       }
       return employees;
     },
     providers(parent, args, ctx, info) {
-      if (args.query) {
-        return providers.find(provider => {
-          return provider.id === args.query;
+      if (args.id) {
+        return providers.filter(provider => {
+          return provider.id === args.id;
         });
       }
       return providers;
     },
     products(parent, args, ctx, info) {
-      if (args.query) {
-        return products.find(product => {
-          return product.id === args.query;
+      if (args.id) {
+        return products.filter(product => {
+          return product.id === args.id;
         });
       }
       return products;
     },
     notes(parent, args, ctx, info) {
-      if (args.query) {
-        return notes.find(note => {
-          return note.id === args.query;
+      if (args.id) {
+        return notes.filter(note => {
+          return note.id === args.id;
         });
       }
       return notes;
     },
     clients(parent, args, ctx, info) {
-      if (args.query) {
-        return clients.find(client => {
-          return client.id === args.query;
+      if (args.ids) {
+        return clients.filter(client => {
+          return client.id === args.id;
         });
       }
       return clients;
     },
     orders(parent, args, ctx, info) {
       if (args.query) {
-        return orders.find(order => {
-          return order.id === args.query;
+        return orders.filter(order => {
+          return order.id === args.id;
         });
       }
       return orders;

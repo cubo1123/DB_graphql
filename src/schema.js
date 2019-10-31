@@ -5,12 +5,12 @@ const typeDefs = `
     }
 
     type Query{
-        employees : [Employee!]!
-        clients : [Client!]!
-        notes : [Note!]!
-        products : [Product]!
-        orders : [Order!]!
-        providers : [Provider!]!
+        employees(id:String) : [Employee!]!
+        clients(id:String) : [Client!]!
+        notes(id:String) : [Note!]!
+        products(id:String) : [Product]!
+        orders(id:String) : [Order!]!
+        providers(id:String) : [Provider!]!
     }
     type Employee{
         id : ID!
