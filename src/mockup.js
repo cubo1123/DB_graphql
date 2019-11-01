@@ -7,7 +7,7 @@ let employees = [
     typeEmployee: "235813",
     schedule: "813",
     startDate: "Date!",
-    status: "Enum!",
+    status: "Active",
     paid: 5000,
     endDate: "Date!"
   },
@@ -19,7 +19,7 @@ let employees = [
     typeEmployee: "2358",
     schedule: "81321",
     startDate: "Date!",
-    status: "Enum!",
+    status: "Inactive",
     paid: 3000,
     endDate: "Date!"
   },
@@ -31,7 +31,7 @@ let employees = [
     typeEmployee: "235",
     schedule: "81321",
     startDate: "Date!",
-    status: "Enum!",
+    status: "Active",
     paid: 15000,
     endDate: "Date!"
   }
@@ -138,19 +138,19 @@ let prices = [
 let orders = [
   {
     id: "4",
-    provider: "Provider!",
+    provider: "666",
     creationDate: "Date!",
     arriveDate: "Date"
   },
   {
     id: "5",
-    provider: "Provider!",
+    provider: "666",
     creationDate: "Date!",
     arriveDate: "Date"
   },
   {
     id: "6",
-    provider: "Provider!",
+    provider: "666",
     creationDate: "Date!",
     arriveDate: "Date"
   }

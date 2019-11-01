@@ -48,7 +48,7 @@ const resolvers = {
       return notes;
     },
     clients(parent, args, ctx, info) {
-      if (args.ids) {
+      if (args.id) {
         return clients.filter(client => {
           return client.id === args.id;
         });
@@ -56,7 +56,7 @@ const resolvers = {
       return clients;
     },
     orders(parent, args, ctx, info) {
-      if (args.query) {
+      if (args.id) {
         return orders.filter(order => {
           return order.id === args.id;
         });
@@ -84,7 +84,7 @@ const resolvers = {
     },
     employee(parent, args, ctx, info) {
       return employees.find(employee => {
-        return employee === parent.employee;
+        return employee.id === parent.employee;
       });
     }
   },
@@ -116,7 +116,7 @@ const resolvers = {
   },
   Order: {
     provider(parent, args, ctx, info) {
-      providers.find(provider => {
+      return providers.find(provider => {
         return provider.id === parent.provider;
       });
     }
