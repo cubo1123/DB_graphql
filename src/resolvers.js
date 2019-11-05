@@ -13,6 +13,7 @@ import {
   costs,
   units
 } from "./mockup";
+import { createClient } from "./db/instances/Clients";
 const resolvers = {
   Query: {
     employees(parent, args, ctx, info) {
@@ -62,6 +63,11 @@ const resolvers = {
         });
       }
       return orders;
+    }
+  },
+  Mutation: {
+    createClient(parent, args, ctx, info) {
+      createClient();
     }
   },
   Employee: {

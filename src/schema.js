@@ -4,6 +4,9 @@ const typeDefs = `
         Inactive
     }
 
+    type Mutation{
+        createClient:String!
+    }
     type Query{
         employees(id:String) : [Employee!]!
         clients(id:String) : [Client!]!
