@@ -13,11 +13,13 @@ TypeEmployee.init(
     },
     description: {
       type: Sequelize.STRING(30),
-      allowNull: false
+      allowNull: false,
+      validate: { isAlpha: true, notEmpty: true }
     },
     job: {
       type: Sequelize.STRING(30),
-      allowNull: false
+      allowNull: false,
+      validate: { isAlpha: true, notEmpty: true }
     }
   },
   { sequelize, timestamps: false, modelName: "type_employees" }

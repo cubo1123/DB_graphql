@@ -15,5 +15,13 @@ const createClient = () => {
       console.log({ err });
     });
 };
-
-export { createClient };
+const getClients = () =>
+  ClientPostgreSql.findAll()
+    .then(clients => {
+      return clients;
+    })
+    .catch(err => {
+      return err;
+    });
+const getClientByID = () => {};
+export { createClient, getClientByID, getClients };

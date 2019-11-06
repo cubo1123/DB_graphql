@@ -11,8 +11,16 @@ Schedule.init(
       unique: true,
       autoIncrement: true
     },
-    start: { allowNull: false, type: Sequelize.TIME },
-    end: { allowNull: false, type: Sequelize.TIME }
+    start: {
+      allowNull: false,
+      type: Sequelize.TIME,
+      validate: { isNumeric: true }
+    },
+    end: {
+      allowNull: false,
+      type: Sequelize.TIME,
+      validate: { isNumeric: true }
+    }
   },
   { sequelize, timestamps: false, modelName: "schedules" }
 );

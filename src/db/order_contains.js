@@ -14,7 +14,11 @@ OrderContain.init(
       unique: true,
       autoIncrement: true
     },
-    quantity: { allowNull: false, type: Sequelize.FLOAT },
+    quantity: {
+      allowNull: false,
+      type: Sequelize.FLOAT,
+      validate: { isNumeric: true }
+    },
     idUnit: {
       allowNull: false,
       type: Sequelize.RANGE(Sequelize.BIGINT),
@@ -22,7 +26,8 @@ OrderContain.init(
         model: Unit,
         key: "id",
         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-      }
+      },
+      validate: { isNumeric: true }
     },
     idProduct: {
       allowNull: false,
@@ -31,7 +36,8 @@ OrderContain.init(
         model: Product,
         key: "id",
         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-      }
+      },
+      validate: { isNumeric: true }
     },
     idOrder: {
       allowNull: false,
@@ -40,7 +46,8 @@ OrderContain.init(
         model: Order,
         key: "id",
         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-      }
+      },
+      validate: { isNumeric: true }
     }
   },
   { sequelize, timestamps: false, modelName: "order_contains" }

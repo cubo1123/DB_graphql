@@ -13,9 +13,21 @@ Product.init(
       unique: true,
       autoIncrement: true
     },
-    name: { allowNull: false, type: Sequelize.STRING(30) },
-    description: { allowNull: false, type: Sequelize.STRING(30) },
-    onStock: { allowNull: false, type: Sequelize.FLOAT },
+    name: {
+      allowNull: false,
+      type: Sequelize.STRING(30),
+      validate: { isAlpha: true, notEmpty: true }
+    },
+    description: {
+      allowNull: false,
+      type: Sequelize.STRING(30),
+      validate: { isAlpha: true, notEmpty: true }
+    },
+    onStock: {
+      allowNull: false,
+      type: Sequelize.FLOAT,
+      validate: { isNumeric: true }
+    },
     idCost: {
       allowNull: false,
       type: Sequelize.RANGE(Sequelize.BIGINT),
@@ -23,7 +35,8 @@ Product.init(
         model: Cost,
         key: "id",
         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-      }
+      },
+      validate: { isNumeric: true }
     },
     idPrice: {
       allowNull: false,
@@ -32,7 +45,8 @@ Product.init(
         model: Price,
         key: "id",
         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-      }
+      },
+      validate: { isNumeric: true }
     },
     idProvider: {
       allowNull: false,
@@ -41,7 +55,8 @@ Product.init(
         model: Provider,
         key: "id",
         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-      }
+      },
+      validate: { isNumeric: true }
     }
   },
   { sequelize, timestamps: false, modelName: "products" }

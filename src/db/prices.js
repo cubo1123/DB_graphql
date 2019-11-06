@@ -11,8 +11,16 @@ Price.init(
       unique: true,
       autoIncrement: true
     },
-    date: { allowNull: false, type: "TIMESTAMP" },
-    value: { allowNull: false, type: Sequelize.FLOAT }
+    date: {
+      allowNull: false,
+      type: "TIMESTAMP",
+      validate: { isNumeric: true }
+    },
+    value: {
+      allowNull: false,
+      type: Sequelize.FLOAT,
+      validate: { isNumeric: true }
+    }
   },
   { sequelize, timestamps: false, modelName: "prices" }
 );

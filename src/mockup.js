@@ -96,9 +96,9 @@ let notes = [
   }
 ];
 let contains = [
-  { id: "243392", quantity: 5, type: "Unit!", product: "753" },
-  { id: "392635", quantity: 7, type: "Unit!", product: "357" },
-  { id: "6351027", quantity: 9, type: "Unit!", product: "159" }
+  { id: "243392", quantity: 5, type: "856", product: "753" },
+  { id: "392635", quantity: 7, type: "856", product: "357" },
+  { id: "6351027", quantity: 9, type: "856", product: "159" }
 ];
 let products = [
   {

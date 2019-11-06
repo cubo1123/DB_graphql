@@ -15,7 +15,11 @@ NoteContain.init(
       unique: true,
       autoIncrement: true
     },
-    quantity: { allowNull: false, type: Sequelize.FLOAT },
+    quantity: {
+      allowNull: false,
+      type: Sequelize.FLOAT,
+      validate: { isNumeric: true }
+    },
     idUnit: {
       allowNull: false,
       type: Sequelize.RANGE(Sequelize.BIGINT),
@@ -23,7 +27,8 @@ NoteContain.init(
         model: Unit,
         key: "id",
         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-      }
+      },
+      validate: { isNumeric: true }
     },
     idProduct: {
       allowNull: false,
@@ -32,7 +37,8 @@ NoteContain.init(
         model: Product,
         key: "id",
         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-      }
+      },
+      validate: { isNumeric: true }
     },
     idNote: {
       allowNull: false,
@@ -41,7 +47,8 @@ NoteContain.init(
         model: Note,
         key: "id",
         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-      }
+      },
+      validate: { isNumeric: true }
     }
   },
   { sequelize, timestamps: false, modelName: "note_contains" }

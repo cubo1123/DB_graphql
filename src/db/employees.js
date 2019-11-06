@@ -13,9 +13,21 @@ Employee.init(
       unique: true,
       autoIncrement: true
     },
-    name: { unique: true, type: Sequelize.STRING(30) },
-    lastName: { unique: true, type: Sequelize.STRING(50) },
-    address: { unique: true, type: Sequelize.STRING(100) },
+    name: {
+      unique: true,
+      type: Sequelize.STRING(30),
+      validate: { isAlpha: true, notEmpty: true }
+    },
+    lastName: {
+      unique: true,
+      type: Sequelize.STRING(50),
+      validate: { isAlpha: true, notEmpty: true }
+    },
+    address: {
+      unique: true,
+      type: Sequelize.STRING(100),
+      validate: { notEmpty: true, isAlpha: true }
+    },
     idTypeEmployee: {
       unique: true,
       type: Sequelize.RANGE(Sequelize.BIGINT),
@@ -23,7 +35,8 @@ Employee.init(
         model: TypeEmployee,
         key: "id",
         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-      }
+      },
+      validate: { isNumeric: true }
     },
     idSchedule: {
       unique: true,
@@ -32,12 +45,25 @@ Employee.init(
         model: Schedule,
         key: "id",
         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-      }
+      },
+      validate: { isNumeric: true }
     },
-    startDate: { unique: true, type: "TIMESTAMP" },
-    status: { unique: true, type: Sequelize.STRING(30) },
-    salary: { unique: true, type: Sequelize.FLOAT },
-    endDate: { unique: true, type: "TIMESTAMP" }
+    startDate: {
+      unique: true,
+      type: "TIMESTAMP",
+      validate: { isNumeric: true }
+    },
+    status: {
+      unique: true,
+      type: Sequelize.STRING(30),
+      validate: { isAlpha: true, notEmpty: true }
+    },
+    salary: {
+      unique: true,
+      type: Sequelize.FLOAT,
+      validate: { isNumeric: true }
+    },
+    endDate: { unique: true, type: "TIMESTAMP", validate: { isNumeric: true } }
   },
   { sequelize, timestamps: false, modelName: "employees" }
 );

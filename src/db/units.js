@@ -11,7 +11,11 @@ Unit.init(
       unique: true,
       autoIncrement: true
     },
-    name: { allowNull: false, type: Sequelize.STRING(30) }
+    name: {
+      allowNull: false,
+      type: Sequelize.STRING(30),
+      validate: { isAlpha: true, notEmpty: true }
+    }
   },
   { sequelize, timestamps: false, modelName: "units" }
 );

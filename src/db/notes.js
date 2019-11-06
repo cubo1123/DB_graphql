@@ -13,7 +13,11 @@ Note.init(
       unique: true,
       autoIncrement: true
     },
-    date: { allowNull: false, type: "TIMESTAMP" },
+    date: {
+      allowNull: false,
+      type: "TIMESTAMP",
+      validate: { isNumeric: true }
+    },
     idClient: {
       allowNull: false,
       type: Sequelize.RANGE(Sequelize.BIGINT),
@@ -21,7 +25,8 @@ Note.init(
         model: Client,
         key: "id",
         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-      }
+      },
+      validate: { isNumeric: true }
     },
     idEmployee: {
       allowNull: false,
@@ -30,7 +35,8 @@ Note.init(
         model: Employee,
         key: "id",
         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-      }
+      },
+      validate: { isNumeric: true }
     }
   },
   { sequelize, timestamps: false, modelName: "notes" }

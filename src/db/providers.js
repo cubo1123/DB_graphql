@@ -11,9 +11,21 @@ Provider.init(
       unique: true,
       autoIncrement: true
     },
-    name: { allowNull: false, type: Sequelize.STRING(30) },
-    telephone: { allowNull: false, type: Sequelize.STRING(15) },
-    address: { allowNull: false, type: Sequelize.STRING(50) }
+    name: {
+      allowNull: false,
+      type: Sequelize.STRING(30),
+      validate: { isAlpha: true, notEmpty: true }
+    },
+    telephone: {
+      allowNull: false,
+      type: Sequelize.STRING(15),
+      validate: { isAlpha: true }
+    },
+    address: {
+      allowNull: false,
+      type: Sequelize.STRING(50),
+      validate: { isAlpha: true, notEmpty: true }
+    }
   },
   { sequelize, timestamps: false, modelName: "providers" }
 );
