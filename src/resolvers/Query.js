@@ -14,26 +14,25 @@ import {
   units
 } from "../mockup";
 import { getClients, getClientByID } from "../db/instances/Clients";
+
 export default {
   async clients(parent, args, ctx, info) {
-    let AllClients = [];
+    if (args.id) {
+      return getClientByID(args.id)
+        .then(client => {
+          return client ? [client] : [];
+        })
+        .catch(err => {
+          return err;
+        });
+    }
     return getClients()
       .then(clients => {
-        clients.forEach(client => {
-          AllClients.push(client.dataValues);
-        });
-        console.log(AllClients);
-        return AllClients;
+        return clients;
       })
       .catch(err => {
         return err;
       });
-    /*if (args.id) {
-      return clients.filter(client => {
-        return client.id === args.id;
-      });
-    }
-    return clients;*/
   },
   costs(parent, args, ctx, info) {
     if (args.id) {

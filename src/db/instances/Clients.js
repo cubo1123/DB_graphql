@@ -23,5 +23,12 @@ const getClients = () =>
     .catch(err => {
       return err;
     });
-const getClientByID = () => {};
+const getClientByID = id =>
+  ClientPostgreSql.findByPk(id)
+    .then(client => {
+      return client;
+    })
+    .catch(err => {
+      return err;
+    });
 export { createClient, getClientByID, getClients };
