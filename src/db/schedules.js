@@ -25,4 +25,4 @@ Schedule.init(
   { sequelize, timestamps: false, modelName: "schedules" }
 );
 
-export { Schedule };
+export { Schedule as SchedulePostgreSql };

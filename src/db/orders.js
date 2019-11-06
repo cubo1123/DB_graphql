@@ -36,4 +36,4 @@ Order.init(
   { sequelize, timestamps: false, modelName: "orders" }
 );
 
-export { Order };
+export { Order as OrderPostgreSql };

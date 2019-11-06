@@ -62,4 +62,4 @@ Product.init(
   { sequelize, timestamps: false, modelName: "products" }
 );
 
-export { Product };
+export { Product as ProductPostgreSql };

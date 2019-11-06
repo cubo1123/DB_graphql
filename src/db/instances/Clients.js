@@ -1,4 +1,5 @@
 import { ClientPostgreSql } from "../clients";
+import { findAll, findOne } from "../snippets";
 const createClient = () => {
   ClientPostgreSql.create({
     name: "que son",
@@ -15,20 +16,7 @@ const createClient = () => {
       console.log({ err });
     });
 };
-const getClients = () =>
-  ClientPostgreSql.findAll()
-    .then(clients => {
-      return clients;
-    })
-    .catch(err => {
-      return err;
-    });
-const getClientByID = id =>
-  ClientPostgreSql.findByPk(id)
-    .then(client => {
-      return client;
-    })
-    .catch(err => {
-      return err;
-    });
+const getClients = () => findAll(ClientPostgreSql);
+const getClientByID = id => findOne(ClientPostgreSql, id);
+
 export { createClient, getClientByID, getClients };

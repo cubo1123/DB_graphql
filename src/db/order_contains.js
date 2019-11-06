@@ -53,4 +53,4 @@ OrderContain.init(
   { sequelize, timestamps: false, modelName: "order_contains" }
 );
 
-export { OrderContain };
+export { OrderContain as OrderContainPostgreSql };

@@ -30,4 +30,4 @@ Provider.init(
   { sequelize, timestamps: false, modelName: "providers" }
 );
 
-export { Provider };
+export { Provider as ProviderPostgreSql };

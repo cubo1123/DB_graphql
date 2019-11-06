@@ -1,0 +1,6 @@
+import { PricePostgreSql } from "../prices";
+import { findAll, findOne } from "../snippets";
+
+const getPrices = () => findAll(PricePostgreSql);
+const getPricesById = id => findOne(PricePostgreSql, id);
+export { getPricesById, getPrices };

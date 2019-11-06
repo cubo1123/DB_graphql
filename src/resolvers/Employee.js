@@ -1,27 +1,22 @@
-import {
-  employees,
-  providers,
-  ordersContain,
-  products,
-  contains,
-  notes,
-  clients,
-  schedules,
-  typeEmployee,
-  orders,
-  prices,
-  costs,
-  units
-} from "../mockup";
+import { getTypeByID } from "../db/instances/TypeEmployee";
+import { getScheduleByID } from "../db/instances/Schedule";
 export default {
-  typeEmployee(parent, args, ctx, info) {
-    return typeEmployee.find(type => {
-      return type.id === parent.typeEmployee;
-    });
+  async typeEmployee(parent, args, ctx, info) {
+    return getTypeByID(parent.typeEmployee)
+      .then(type => {
+        return type;
+      })
+      .catch(err => {
+        return err;
+      });
   },
-  schedule(parent, args, ctx, info) {
-    return schedules.find(schedule => {
-      return schedule.id === parent.schedule;
-    });
+  async schedule(parent, args, ctx, info) {
+    return getScheduleByID(parent.schedule)
+      .then(schedule => {
+        return schedule;
+      })
+      .then(err => {
+        return err;
+      });
   }
 };

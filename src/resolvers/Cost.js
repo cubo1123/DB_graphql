@@ -1,6 +1,12 @@
-import { findProductById } from "../db/instances/Products";
+import { getCostById } from "../db/instances/Cost";
 export default {
-  product(parent, args, ctx, info) {
-    return findProductById(parent.product);
+  async product(parent, args, ctx, info) {
+    return getCostById(parent.product)
+      .then(cost => {
+        return cost;
+      })
+      .catch(err => {
+        return err;
+      });
   }
 };

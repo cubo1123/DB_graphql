@@ -25,4 +25,4 @@ TypeEmployee.init(
   { sequelize, timestamps: false, modelName: "type_employees" }
 );
 
-export { TypeEmployee };
+export { TypeEmployee as TypeEmployeePostgreSql };

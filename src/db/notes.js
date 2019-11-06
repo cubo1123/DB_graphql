@@ -42,4 +42,4 @@ Note.init(
   { sequelize, timestamps: false, modelName: "notes" }
 );
 
-export { Note };
+export { Note as NotePostgreSql };

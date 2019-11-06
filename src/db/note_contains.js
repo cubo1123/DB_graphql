@@ -54,4 +54,4 @@ NoteContain.init(
   { sequelize, timestamps: false, modelName: "note_contains" }
 );
 
-export { NoteContain };
+export { NoteContain as NoteContainPostgreSql };

@@ -25,4 +25,4 @@ Price.init(
   { sequelize, timestamps: false, modelName: "prices" }
 );
 
-export { Price };
+export { Price as PricePostgreSql };
