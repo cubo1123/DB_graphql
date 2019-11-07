@@ -1,4 +1,4 @@
-import { NoteContainPostgreSql } from "../note_contains";
+import { NoteContainPostgreSql } from "../";
 import { findAll, findOne } from "../query";
 
 const getNotesContain = () => findAll(NoteContainPostgreSql);

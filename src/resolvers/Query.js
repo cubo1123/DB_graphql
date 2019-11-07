@@ -1,22 +1,31 @@
-import { getClients, getClientByID } from "../db/instances/Clients";
-import { getCosts, getCostById } from "../db/instances/Cost";
-import { getEmployeeByID, getEmployees } from "../db/instances/Employees";
 import {
+  getClients,
+  getClientByID,
+  getCosts,
+  getCostById,
+  getEmployeeByID,
+  getEmployees,
   getNoteContainByID,
-  getNotesContain
-} from "../db/instances/NoteContains";
-import { getNoteByID, getNotes } from "../db/instances/Notes";
-import {
+  getNotesContain,
+  getNoteByID,
+  getNotes,
   getOrdersContain,
-  getOrdersContainById
-} from "../db/instances/OrderContain";
-import { getOrder, getOrderById } from "../db/instances/Order";
-import { getPrices, getPricesById } from "../db/instances/Price";
-import { getProducts, getProductById } from "../db/instances/Product";
-import { getProviders, getProviderById } from "../db/instances/Provider";
-import { getSchedules, getScheduleByID } from "../db/instances/Schedule";
-import { getTypeByID, getTypes } from "../db/instances/TypeEmployee";
-import { getUnits, getUnitsById } from "../db/instances/Unit";
+  getOrdersContainById,
+  getOrder,
+  getOrderById,
+  getPrices,
+  getPricesById,
+  getProducts,
+  getProductById,
+  getProviders,
+  getProviderById,
+  getSchedules,
+  getScheduleByID,
+  getTypeByID,
+  getTypes,
+  getUnits,
+  getUnitsById
+} from "../db/instances";
 
 export default {
   async clients(parent, args, ctx, info) {

@@ -1,5 +1,5 @@
-import { getClientByID } from "../db/instances/Clients";
-import { getEmployeeByID } from "../db/instances/Employees";
+import { getClientByID } from "../db/instances";
+import { getEmployeeByID } from "../db/instances";
 export default {
   async client(parent, args, ctx, info) {
     return getClientByID(parent.client)

@@ -68,4 +68,4 @@ Employee.init(
   { sequelize, timestamps: false, modelName: "employees" }
 );
 
-export { Employee };
+export { Employee as EmployeePostgreSql };

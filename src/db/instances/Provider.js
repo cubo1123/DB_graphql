@@ -1,4 +1,4 @@
-import { ProviderPostgreSql } from "../providers";
+import { ProviderPostgreSql } from "../";
 import { findAll, findOne } from "../query";
 
 const getProviders = () => findAll(ProviderPostgreSql);

@@ -15,5 +15,5 @@ const app = express();
 schema.applyMiddleware({ app });
 
 app.listen(3000, () => {
-  console.log("Go to http://localhost:3000/graphql to run queries!");
+  console.log("Live on http://localhost:3000/graphql");
 });

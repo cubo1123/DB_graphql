@@ -1,4 +1,4 @@
-import { ProductPostgreSql } from "../products";
+import { ProductPostgreSql } from "../";
 import { findAll, findOne } from "../query";
 
 const getProducts = () => findAll(ProductPostgreSql);

@@ -1,5 +1,5 @@
-import { getTypeByID } from "../db/instances/TypeEmployee";
-import { getScheduleByID } from "../db/instances/Schedule";
+import { getTypeByID } from "../db/instances";
+import { getScheduleByID } from "../db/instances";
 export default {
   async typeEmployee(parent, args, ctx, info) {
     return getTypeByID(parent.typeEmployee)

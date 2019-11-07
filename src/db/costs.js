@@ -25,4 +25,4 @@ Cost.init(
   { sequelize, timestamps: false, modelName: "costs" }
 );
 
-export { Cost };
+export { Cost as CostPostgreSql };

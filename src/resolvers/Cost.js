@@ -1,4 +1,4 @@
-import { getCostById } from "../db/instances/Cost";
+import { getCostById } from "../db/instances";
 export default {
   async product(parent, args, ctx, info) {
     return getCostById(parent.product)

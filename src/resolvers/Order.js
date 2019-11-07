@@ -1,4 +1,4 @@
-import { getProviderById } from "../db/instances/Provider";
+import { getProviderById } from "../db/instances";
 
 export default {
   async provider(parent, args, ctx, info) {

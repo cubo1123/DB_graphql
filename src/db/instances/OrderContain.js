@@ -1,4 +1,4 @@
-import { OrderContainPostgreSql } from "../order_contains";
+import { OrderContainPostgreSql } from "../";
 import { findAll, findOne } from "../query";
 
 const getOrdersContain = () => findAll(OrderContainPostgreSql);

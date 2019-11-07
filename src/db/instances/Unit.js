@@ -1,4 +1,4 @@
-import { UnitPostgreSql } from "../units";
+import { UnitPostgreSql } from "../";
 import { findAll, findOne } from "../query";
 
 const getUnits = () => findAll(UnitPostgreSql);

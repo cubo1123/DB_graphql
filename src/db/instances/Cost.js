@@ -1,6 +1,6 @@
-import { Cost } from "../costs";
+import { CostPostgreSql } from "../";
 import { findAll, findOne } from "../query";
 
-const getCostById = id => findOne(Cost, id);
-const getCosts = () => findAll(Cost);
+const getCostById = id => findOne(CostPostgreSql, id);
+const getCosts = () => findAll(CostPostgreSql);
 export { getCostById, getCosts };

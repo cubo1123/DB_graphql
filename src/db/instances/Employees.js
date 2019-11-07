@@ -1,4 +1,4 @@
-import { EmployeePostgreSql } from "../employees";
+import { EmployeePostgreSql } from "../";
 import { findAll, findOne } from "../query";
 
 const getEmployees = () => findAll(EmployeePostgreSql);

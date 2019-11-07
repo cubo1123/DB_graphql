@@ -1,5 +1,5 @@
 import Query from "./Query";
-import Mutation from "./Mutation";
+import Mutation from "./mutation";
 import Employee from "./Employee";
 import Note from "./Note";
 import NoteContain from "./NoteContain";

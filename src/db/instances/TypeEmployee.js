@@ -1,4 +1,4 @@
-import { TypeEmployeePostgreSql } from "../type_employees";
+import { TypeEmployeePostgreSql } from "../";
 import { findAll, findOne } from "../query";
 
 const getTypes = () => findAll(TypeEmployeePostgreSql);
