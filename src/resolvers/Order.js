@@ -1,22 +1,7 @@
-import {
-  employees,
-  providers,
-  ordersContain,
-  products,
-  contains,
-  notes,
-  clients,
-  schedules,
-  typeEmployee,
-  orders,
-  prices,
-  costs,
-  units
-} from "../mockup";
+import { getProviderById } from "../db/instances/Provider";
+
 export default {
-  provider(parent, args, ctx, info) {
-    return providers.find(provider => {
-      return provider.id === parent.provider;
-    });
+  async provider(parent, args, ctx, info) {
+    return getProviderById(parent.provider);
   }
 };

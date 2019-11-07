@@ -1,27 +1,10 @@
-import {
-  employees,
-  providers,
-  ordersContain,
-  products,
-  contains,
-  notes,
-  clients,
-  schedules,
-  typeEmployee,
-  orders,
-  prices,
-  costs,
-  units
-} from "../mockup";
+import { getProductById } from "../db/instances/Product";
+import { getUnitsById } from "../db/instances/Unit";
 export default {
-  product(parent, args, ctx, info) {
-    products.find(product => {
-      return product.id === parent.product;
-    });
+  async product(parent, args, ctx, info) {
+    return getProductById(parent.product);
   },
-  type(parent, args, ctx, info) {
-    units.find(unit => {
-      return unit.id === parent.type;
-    });
+  async type(parent, args, ctx, info) {
+    return getUnitsById(parent.type);
   }
 };

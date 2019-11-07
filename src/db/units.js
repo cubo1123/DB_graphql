@@ -20,4 +20,4 @@ Unit.init(
   { sequelize, timestamps: false, modelName: "units" }
 );
 
-export { Unit };
+export { Unit as UnitPostgreSql };

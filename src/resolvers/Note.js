@@ -1,4 +1,5 @@
-import { getClientByID, getClients } from "../db/instances/Clients";
+import { getClientByID } from "../db/instances/Clients";
+import { getEmployeeByID } from "../db/instances/Employees";
 export default {
   async client(parent, args, ctx, info) {
     return getClientByID(parent.client)
@@ -10,8 +11,12 @@ export default {
       });
   },
   async employee(parent, args, ctx, info) {
-    return employees.find(employee => {
-      return employee.id === parent.employee;
-    });
+    return getEmployeeByID()
+      .then(employee => {
+        return employee;
+      })
+      .catch(err => {
+        return err;
+      });
   }
 };
