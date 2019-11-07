@@ -1,133 +1,139 @@
-import {
-  employees,
-  providers,
-  ordersContain,
-  products,
-  contains,
-  notes,
-  schedules,
-  typeEmployee,
-  orders,
-  prices,
-  clients,
-  costs,
-  units
-} from "../mockup";
 import { getClients, getClientByID } from "../db/instances/Clients";
+import { getCosts, getCostById } from "../db/instances/Cost";
+import { getEmployeeByID, getEmployees } from "../db/instances/Employees";
+import {
+  getNoteContainByID,
+  getNotesContain
+} from "../db/instances/NoteContains";
+import { getNoteByID, getNotes } from "../db/instances/Notes";
+import {
+  getOrdersContain,
+  getOrdersContainById
+} from "../db/instances/OrderContain";
+import { getOrder, getOrderById } from "../db/instances/Order";
+import { getPrices, getPricesById } from "../db/instances/Price";
+import { getProducts, getProductById } from "../db/instances/Product";
+import { getProviders, getProviderById } from "../db/instances/Provider";
+import { getSchedules, getScheduleByID } from "../db/instances/Schedule";
+import { getTypeByID, getTypes } from "../db/instances/TypeEmployee";
+import { getUnits, getUnitsById } from "../db/instances/Unit";
 
 export default {
   async clients(parent, args, ctx, info) {
-    if (args.id) {
-      return getClientByID(args.id)
-        .then(client => {
-          return client ? [client] : [];
-        })
-        .catch(err => {
-          return err;
-        });
-    }
-    return getClients()
-      .then(clients => {
-        return clients;
-      })
-      .catch(err => {
-        return err;
-      });
+    return args.id
+      ? getClientByID(args.id)
+          .then(client => client)
+          .catch(err => err)
+      : getClients()
+          .then(clients => clients)
+          .catch(err => err);
   },
-  costs(parent, args, ctx, info) {
-    if (args.id) {
-      return costs.filter(cost => {
-        return cost.id === args.id;
-      });
-    }
-    return costs;
+  async costs(parent, args, ctx, info) {
+    return args.id
+      ? getCostById(args.id)
+          .then(cost => cost)
+          .catch(err => err)
+      : getCosts()
+          .then(costs => costs)
+          .catch(err => err);
   },
-  employees(parent, args, ctx, info) {
-    if (args.id) {
-      return employees.filter(employee => {
-        return employee.id === args.id;
-      });
-    }
-    return employees;
+  async employees(parent, args, ctx, info) {
+    return args.id
+      ? getEmployeeByID(args.id)
+          .then(employee => employee)
+          .catch(err => err)
+      : getEmployees()
+          .then(employees => employees)
+          .catch(err => err);
   },
-  noteContains(parent, args, ctx, info) {
-    if (args.id) {
-      return contains.filter(noteContain => {
-        return noteContain.id === args.id;
-      });
-    }
-    return contains;
+  async noteContains(parent, args, ctx, info) {
+    return args.id
+      ? getNoteContainByID(args.id)
+          .then(noteContain => noteContain)
+          .catch(err => err)
+      : getNotesContain()
+          .then(notesContain => notesContain)
+          .catch(err => err);
   },
-  notes(parent, args, ctx, info) {
-    if (args.id) {
-      return notes.filter(note => {
-        return note.id === args.id;
-      });
-    }
-    return notes;
+  async notes(parent, args, ctx, info) {
+    return args.id
+      ? getNoteByID(args.id)
+          .then(note => note)
+          .catch(err => err)
+      : getNotes()
+          .then(notes => notes)
+          .catch(err => err);
   },
-  orderContains(parent, args, ctx, info) {
-    if (args.id) {
-      return ordersContain.filter(orderContain => {
-        return orderContain.id === args.id;
-      });
-    }
-    return ordersContain;
+  async orderContains(parent, args, ctx, info) {
+    return args.id
+      ? getOrdersContainById(args.id)
+          .then(orderContain => orderContain)
+          .catch(err => err)
+      : getOrdersContain()
+          .then(orderContains => orderContains)
+          .catch(err => err);
   },
-  orders(parent, args, ctx, info) {
-    if (args.id) {
-      return orders.filter(order => {
-        return order.id === args.id;
-      });
-    }
-    return orders;
+  async orders(parent, args, ctx, info) {
+    return args.id
+      ? getOrderById(args.id)
+          .then(order => order)
+          .catch(err => err)
+      : getOrder()
+          .then(orders => orders)
+          .catch(err => err);
   },
-  prices(parent, args, ctx, info) {
-    if (args.id) {
-      return prices.filter(price => {
-        return price.id === args.id;
-      });
-    }
-    return prices;
+  async prices(parent, args, ctx, info) {
+    return args.id
+      ? getPricesById(args.id)
+          .then(price => price)
+          .catch(err => err)
+      : getPrices()
+          .then(prices => prices)
+          .catch(err => err);
   },
-  products(parent, args, ctx, info) {
-    if (args.id) {
-      return products.filter(product => {
-        return product.id === args.id;
-      });
-    }
-    return products;
+  async products(parent, args, ctx, info) {
+    return args.id
+      ? getProductById(args.id)
+          .then(product => product)
+          .catch(err => err)
+      : getProducts()
+          .then(products => products)
+          .catch(err => err);
   },
-  providers(parent, args, ctx, info) {
-    if (args.id) {
-      return providers.filter(provider => {
-        return provider.id === args.id;
-      });
-    }
-    return providers;
+  async providers(parent, args, ctx, info) {
+    return args.id
+      ? getProviderById(args.id)
+          .then(provider => provider)
+          .catch(err => err)
+      : getProviders()
+          .then(providers => providers)
+          .catch(err => err);
   },
-  schedules(parent, args, ctx, info) {
-    if (args.id) {
-      return schedules.filter(schedule => {
-        return schedule.id === args.id;
-      });
-    }
-    return schedules;
+  async schedules(parent, args, ctx, info) {
+    return args.id
+      ? getScheduleByID(args.id)
+          .then(schedule => schedule)
+          .catch(err => err)
+      : getSchedules()
+          .then(schedules => schedules)
+          .catch(err => err);
   },
-  typeEmployees(parent, args, ctx, info) {
-    if (args.id) {
-      return typeEmployee.filter(type => {
-        return type.id === args.id;
-      });
-    }
-    return typeEmployee;
+  async typeEmployees(parent, args, ctx, info) {
+    return args.id
+      ? getTypeByID(args.id)
+          .then(type => type)
+          .catch(err => err)
+      : getTypes()
+          .then(types => types)
+          .catch(err => err);
   },
-  units(parent, args, ctx, info) {
-    if (args.id) {
-      return units.filter(unit => {
-        return unit.id === args.id;
-      });
-    }
-    return units;
+  async units(parent, args, ctx, info) {
+    return args.id
+      ? getUnitsById(args.id)
+          .then(unit => unit)
+          .catch(err => err)
+      : getUnits()
+          .then(units => units)
+          .catch(err => err);
   }
 };

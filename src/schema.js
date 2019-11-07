@@ -116,5 +116,6 @@ export const typeDefs = gql`
     id: ID!
     name: String!
     telephone: String!
+    address: String!
   }
 `;

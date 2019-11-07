@@ -1,5 +1,5 @@
 import { UnitPostgreSql } from "../units";
-import { findAll, findOne } from "../snippets";
+import { findAll, findOne } from "../query";
 
 const getUnits = () => findAll(UnitPostgreSql);
 

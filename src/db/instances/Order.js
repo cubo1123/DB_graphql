@@ -1,6 +1,6 @@
 import { OrderPostgreSql } from "../orders";
-import { findAll, findOne } from "../snippets";
+import { findAll, findOne } from "../query";
 
 const getOrder = () => findAll(OrderPostgreSql);
-const getNoteById = id => findOne(OrderPostgreSql, id);
-export { getNoteById, getOrder };
+const getOrderById = id => findOne(OrderPostgreSql, id);
+export { getOrderById, getOrder };

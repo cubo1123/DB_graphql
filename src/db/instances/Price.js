@@ -1,5 +1,5 @@
 import { PricePostgreSql } from "../prices";
-import { findAll, findOne } from "../snippets";
+import { findAll, findOne } from "../query";
 
 const getPrices = () => findAll(PricePostgreSql);
 const getPricesById = id => findOne(PricePostgreSql, id);

@@ -1,5 +1,5 @@
 import { ClientPostgreSql } from "../clients";
-import { findAll, findOne } from "../snippets";
+import { findAll, findOne } from "../query";
 const createClient = () => {
   ClientPostgreSql.create({
     name: "que son",

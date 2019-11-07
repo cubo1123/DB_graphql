@@ -1,5 +1,5 @@
 import { SchedulePostgreSql } from "../schedules";
-import { findAll, findOne } from "../snippets";
+import { findAll, findOne } from "../query";
 
 const getSchedules = () => findAll(SchedulePostgreSql);
 
