@@ -1,5 +1,4 @@
+import { createClient } from "./Clients";
 export default {
-  createClient(parent, args, ctx, info) {
-    createClient();
-  }
+  createClient
 };

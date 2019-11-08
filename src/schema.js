@@ -6,7 +6,16 @@ export const typeDefs = gql`
   }
 
   type Mutation {
-    createClient: String!
+    createClient(data: CreateClient!): Client!
+  }
+
+  input CreateClient {
+    name: String!
+    lastName: String!
+    address: String!
+    telephone: String!
+    creditAvailable: Float!
+    creditUsed: Float!
   }
   type Query {
     clients(id: String): [Client!]!

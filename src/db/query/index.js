@@ -14,4 +14,10 @@ const findOne = (instance, id) =>
       return err;
     });
 
-export { findAll, findOne };
+const create = (instance, data) =>
+  instance
+    .create(data)
+    .then(response => response)
+    .catch(err => err);
+
+export { findAll, findOne, create };

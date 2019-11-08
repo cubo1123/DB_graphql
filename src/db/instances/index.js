@@ -1,4 +1,4 @@
-import { getClients, getClientByID } from "./Clients";
+import { getClients, getClientByID, createClient } from "./Clients";
 import { getCosts, getCostById } from "./Cost";
 import { getEmployeeByID, getEmployees } from "./Employees";
 import { getNoteContainByID, getNotesContain } from "./NoteContains";
@@ -15,6 +15,7 @@ import { getUnits, getUnitsById } from "./Unit";
 export {
   getClients,
   getClientByID,
+  createClient,
   getCosts,
   getCostById,
   getEmployeeByID,
