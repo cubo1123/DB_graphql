@@ -94,7 +94,7 @@ CREATE TABLE orders (
   id serial NOT NULL,
   provider serial NOT NULL,
   "createdat" timestamptz NOT NULL,
-  "arrivedat" timestamptz NOT NULL,
+  "arrivedat" timestamptz,
   PRIMARY KEY(id),
   FOREIGN KEY (provider) REFERENCES providers(id) ON UPDATE CASCADE ON DELETE RESTRICT
 );

@@ -13,13 +13,11 @@ Schedule.init(
     },
     start: {
       allowNull: false,
-      type: Sequelize.TIME,
-      validate: { isNumeric: true }
+      type: Sequelize.TIME
     },
-    end: {
+    finish: {
       allowNull: false,
-      type: Sequelize.TIME,
-      validate: { isNumeric: true }
+      type: Sequelize.TIME
     }
   },
   { sequelize, timestamps: false, modelName: "schedules" }

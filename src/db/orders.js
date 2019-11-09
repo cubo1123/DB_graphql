@@ -14,15 +14,12 @@ Order.init(
     },
     createdAt: {
       allowNull: false,
-      type: "TIMESTAMP",
-      validate: { isNumeric: true }
+      type: Sequelize.DATE
     },
     arrivedAt: {
-      allowNull: false,
-      type: "TIMESTAMP",
-      validate: { isNumeric: true }
+      type: Sequelize.DATE
     },
-    idProvider: {
+    provider: {
       allowNull: false,
       type: Sequelize.RANGE(Sequelize.BIGINT),
       references: {

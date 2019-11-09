@@ -15,10 +15,9 @@ Note.init(
     },
     date: {
       allowNull: false,
-      type: "TIMESTAMP",
-      validate: { isNumeric: true }
+      type: Sequelize.DATE
     },
-    idClient: {
+    client: {
       allowNull: false,
       type: Sequelize.RANGE(Sequelize.BIGINT),
       references: {
@@ -28,7 +27,7 @@ Note.init(
       },
       validate: { isNumeric: true }
     },
-    idEmployee: {
+    employee: {
       allowNull: false,
       type: Sequelize.RANGE(Sequelize.BIGINT),
       references: {
