@@ -7,6 +7,7 @@ export const typeDefs = gql`
 
   type Mutation {
     createClient(data: CreateClient!): Client!
+    createCost(data: CreateCost): Cost
   }
 
   input CreateClient {
@@ -17,6 +18,12 @@ export const typeDefs = gql`
     creditAvailable: Float!
     creditUsed: Float!
   }
+
+  input CreateCost {
+    value: Float!
+    date: String!
+  }
+
   type Query {
     clients(id: String): [Client!]!
     costs(id: String): [Cost!]!
@@ -41,7 +48,7 @@ export const typeDefs = gql`
     schedule: Schedule!
     startDate: String!
     status: ENUMStatus!
-    paid: Float!
+    salary: Float!
     endDate: String!
   }
 
@@ -53,8 +60,8 @@ export const typeDefs = gql`
 
   type Schedule {
     id: ID!
-    startTime: String!
-    endTime: String!
+    start: String!
+    finish: String!
   }
 
   type Client {
@@ -76,9 +83,10 @@ export const typeDefs = gql`
 
   type NoteContain {
     id: ID!
-    quantity: Int!
-    type: Unit!
+    quantity: Float!
+    unit: Unit!
     product: Product!
+    note: Note!
   }
 
   type Product {
@@ -86,6 +94,11 @@ export const typeDefs = gql`
     name: String!
     description: String!
     onStock: Int!
+    cost: [Cost!]!
+    price: [Price!]!
+    provider: Provider
+    unit: Unit!
+    quantity: Float!
   }
 
   type Unit {
@@ -95,7 +108,7 @@ export const typeDefs = gql`
 
   type Cost {
     id: ID!
-    value: Float
+    value: Float!
     date: String!
     product: Product!
   }
@@ -110,15 +123,16 @@ export const typeDefs = gql`
   type Order {
     id: ID!
     provider: Provider!
-    creationDate: String!
-    arriveDate: String
+    createdAt: String!
+    arrivedAt: String
   }
 
   type OrderContain {
     id: ID!
     product: Product!
-    order: Order!
-    quantity: Int!
+    belongTo: Order!
+    quantity: Float!
+    unit: Unit!
   }
 
   type Provider {

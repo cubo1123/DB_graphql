@@ -1,6 +1,7 @@
 import { ProductPostgreSql } from "../";
-import { findAll, findOne } from "../query";
+import { findAll, findOne, create } from "../query";
 
+const createProduct = data => create(ProductPostgreSql, data);
 const getProducts = () => findAll(ProductPostgreSql);
 const getProductById = id => findOne(ProductPostgreSql, id);
-export { getProductById, getProducts };
+export { getProductById, getProducts, createProduct };

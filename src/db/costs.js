@@ -13,8 +13,8 @@ Cost.init(
     },
     date: {
       allowNull: false,
-      type: "TIMESTAMP",
-      validate: { isNumeric: true }
+      type: Sequelize.DATE,
+      validate: { isDate: true }
     },
     value: {
       allowNull: false,

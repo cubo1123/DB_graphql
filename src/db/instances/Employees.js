@@ -1,6 +1,7 @@
 import { EmployeePostgreSql } from "../";
-import { findAll, findOne } from "../query";
+import { findAll, findOne, create } from "../query";
 
+const createEmployee = data => create(EmployeePostgreSql, data);
 const getEmployees = () => findAll(EmployeePostgreSql);
 const getEmployeeByID = id => findOne(EmployeePostgreSql, id);
-export { getEmployeeByID, getEmployees };
+export { getEmployeeByID, getEmployees, createEmployee };

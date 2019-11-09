@@ -1,8 +1,10 @@
 import { TypeEmployeePostgreSql } from "../";
-import { findAll, findOne } from "../query";
+import { findAll, findOne, create } from "../query";
+
+const createTypeEmployee = data => create(TypeEmployeePostgreSql, data);
 
 const getTypes = () => findAll(TypeEmployeePostgreSql);
 
 const getTypeByID = id => findOne(PageTransitionEvent, id);
 
-export { getTypeByID, getTypes };
+export { getTypeByID, getTypes, createTypeEmployee };

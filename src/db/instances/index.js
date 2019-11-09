@@ -1,43 +1,62 @@
 import { getClients, getClientByID, createClient } from "./Clients";
-import { getCosts, getCostById } from "./Cost";
-import { getEmployeeByID, getEmployees } from "./Employees";
-import { getNoteContainByID, getNotesContain } from "./NoteContains";
-import { getNoteByID, getNotes } from "./Notes";
-import { getOrdersContain, getOrdersContainById } from "./OrderContain";
-import { getOrder, getOrderById } from "./Order";
-import { getPrices, getPricesById } from "./Price";
-import { getProducts, getProductById } from "./Product";
-import { getProviders, getProviderById } from "./Provider";
-import { getSchedules, getScheduleByID } from "./Schedule";
-import { getTypeByID, getTypes } from "./TypeEmployee";
-import { getUnits, getUnitsById } from "./Unit";
-
-export {
-  getClients,
-  getClientByID,
-  createClient,
-  getCosts,
-  getCostById,
-  getEmployeeByID,
-  getEmployees,
+import { getCosts, getCostById, createCost } from "./Cost";
+import { getEmployeeByID, getEmployees, createEmployee } from "./Employees";
+import {
   getNoteContainByID,
   getNotesContain,
-  getNoteByID,
-  getNotes,
+  createNoteContain
+} from "./NoteContains";
+import { getNoteByID, getNotes, createNote } from "./Notes";
+import {
   getOrdersContain,
   getOrdersContainById,
+  createOrderContain
+} from "./OrderContain";
+import { getOrder, getOrderById, createOrder } from "./Order";
+import { getPrices, getPricesById, createPrice } from "./Price";
+import { getProducts, getProductById, createProduct } from "./Product";
+import { getProviders, getProviderById, createProvider } from "./Provider";
+import { getSchedules, getScheduleByID, createSchedule } from "./Schedule";
+import { getTypeByID, getTypes, createTypeEmployee } from "./TypeEmployee";
+import { getUnits, getUnitsById, createUnit } from "./Unit";
+
+export {
+  getCosts,
+  getCostById,
+  createCost,
+  getClients,
+  getClientByID,
+  getEmployeeByID,
+  getEmployees,
+  createEmployee,
+  getNoteContainByID,
+  getNotesContain,
+  createNoteContain,
+  getNoteByID,
+  getNotes,
+  createNote,
+  getOrdersContain,
+  getOrdersContainById,
+  createOrderContain,
   getOrder,
   getOrderById,
+  createOrder,
   getPrices,
   getPricesById,
+  createPrice,
   getProducts,
   getProductById,
+  createProduct,
   getProviders,
   getProviderById,
+  createProvider,
   getSchedules,
   getScheduleByID,
+  createSchedule,
   getTypeByID,
   getTypes,
+  createTypeEmployee,
   getUnits,
-  getUnitsById
+  getUnitsById,
+  createUnit
 };
