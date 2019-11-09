@@ -1,7 +1,7 @@
 import { getProviderById } from "../db/instances";
 
 export default {
-  async provider(parent, args, ctx, info) {
-    return getProviderById(parent.provider);
+  async provider(parent, args, { ProviderPostgreSql }, info) {
+    return getProviderById(ProviderPostgreSql, parent.provider);
   }
 };

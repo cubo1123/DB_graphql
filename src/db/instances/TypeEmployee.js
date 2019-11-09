@@ -1,10 +1,9 @@
-import { TypeEmployeePostgreSql } from "../";
 import { findAll, findOne, create } from "../query";
 
-const createTypeEmployee = data => create(TypeEmployeePostgreSql, data);
+const createTypeEmployee = (db, data) => create(db, data);
 
-const getTypes = () => findAll(TypeEmployeePostgreSql);
+const getTypes = db => findAll(db);
 
-const getTypeByID = id => findOne(PageTransitionEvent, id);
+const getTypeByID = (db, id) => findOne(db, id);
 
 export { getTypeByID, getTypes, createTypeEmployee };

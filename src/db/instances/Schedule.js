@@ -1,9 +1,7 @@
-import { SchedulePostgreSql } from "../";
 import { findAll, findOne, create } from "../query";
 
-const createSchedule = data => create(SchedulePostgreSql, data);
-const getSchedules = () => findAll(SchedulePostgreSql);
-
-const getScheduleByID = id => findOne(SchedulePostgreSql, id);
+const createSchedule = (db, data) => create(db, data);
+const getSchedules = db => findAll(db);
+const getScheduleByID = (db, id) => findOne(db, id);
 
 export { getSchedules, getScheduleByID, createSchedule };

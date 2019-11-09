@@ -1,7 +1,6 @@
-import { OrderPostgreSql } from "../";
 import { findAll, findOne, create } from "../query";
 
-const createOrder = data => create(OrderPostgreSql, data);
-const getOrder = () => findAll(OrderPostgreSql);
-const getOrderById = id => findOne(OrderPostgreSql, id);
+const createOrder = (db, data) => create(db, data);
+const getOrder = db => findAll(db);
+const getOrderById = (db, id) => findOne(db, id);
 export { getOrderById, getOrder, createOrder };

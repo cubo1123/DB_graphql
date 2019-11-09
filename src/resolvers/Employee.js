@@ -1,8 +1,8 @@
 import { getTypeByID } from "../db/instances";
 import { getScheduleByID } from "../db/instances";
 export default {
-  async typeEmployee(parent, args, ctx, info) {
-    return getTypeByID(parent.typeEmployee)
+  async typeEmployee(parent, args, { TypeEmployeePostgreSql }, info) {
+    return getTypeByID(TypeEmployeePostgreSql, parent.typeEmployee)
       .then(type => {
         return type;
       })
@@ -10,8 +10,8 @@ export default {
         return err;
       });
   },
-  async schedule(parent, args, ctx, info) {
-    return getScheduleByID(parent.schedule)
+  async schedule(parent, args, { SchedulePostgreSql }, info) {
+    return getScheduleByID(SchedulePostgreSql, parent.schedule)
       .then(schedule => {
         return schedule;
       })

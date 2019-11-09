@@ -17,8 +17,8 @@ export const typeDefs = gql`
   }
 
   input CreateSchedule {
-    start: String!
     finish: String!
+    start: String!
   }
 
   input CreateNote {
@@ -79,9 +79,7 @@ export const typeDefs = gql`
     clients(id: String): [Client!]!
     costs(id: String): [Cost!]!
     employees(id: String): [Employee!]!
-    noteContains(id: String): [NoteContain!]!
     notes(id: String): [Note!]!
-    orderContains(id: String): [OrderContain!]!
     orders(id: String): [Order!]!
     prices(id: String): [Price!]!
     products(id: String): [Product]!

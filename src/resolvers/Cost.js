@@ -1,7 +1,7 @@
 import { getCostById } from "../db/instances";
 export default {
-  async product(parent, args, ctx, info) {
-    return getCostById(parent.product)
+  async product(parent, args, { CostPostgreSql }, info) {
+    return getCostById(CostPostgreSql, parent.product)
       .then(cost => {
         return cost;
       })

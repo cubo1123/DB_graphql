@@ -1,6 +1,6 @@
 import { createEmployee as create } from "../../db/instances/Employees";
-const createEmployee = (parent, args, ctx, info) =>
-  create({
+const createEmployee = (parent, args, { EmployeePostgreSql }, info) =>
+  create(EmployeePostgreSql, {
     name: args.data.name,
     lastName: args.data.lastName,
     address: args.data.address,

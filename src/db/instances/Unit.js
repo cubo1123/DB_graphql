@@ -1,9 +1,8 @@
-import { UnitPostgreSql } from "../";
 import { findAll, findOne, create } from "../query";
 
-const createUnit = data => create(UnitPostgreSql, data);
-const getUnits = () => findAll(UnitPostgreSql);
+const createUnit = (db, data) => create(UnitPostgreSql, data);
+const getUnits = db => findAll(UnitPostgreSql);
 
-const getUnitsById = id => findOne(UnitPostgreSql, id);
+const getUnitsById = (db, id) => findOne(UnitPostgreSql, id);
 
 export { getUnitsById, getUnits, createUnit };

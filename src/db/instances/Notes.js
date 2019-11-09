@@ -1,7 +1,6 @@
-import { NotePostgreSql } from "../";
 import { findAll, findOne, create } from "../query";
 
-const createNote = data => create(NotePostgreSql, data);
-const getNotes = () => findAll(NotePostgreSql);
-const getNoteByID = id => findOne(NotePostgreSql, id);
+const createNote = (db, data) => create(db, data);
+const getNotes = db => findAll(db);
+const getNoteByID = (db, id) => findOne(db, id);
 export { getNoteByID, getNotes, createNote };
