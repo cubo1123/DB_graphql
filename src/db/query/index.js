@@ -1,3 +1,5 @@
+import { reject } from "any-promise";
+
 const findAll = instance =>
   instance
     .findAll()
@@ -9,15 +11,15 @@ const findAll = instance =>
 const findOne = (instance, id) =>
   instance
     .findByPk(id)
-    .then(data => (data ? [data] : []))
-    .catch(err => {
-      return err;
-    });
+    .then(data => data)
+    .catch(err => err);
 
 const create = (instance, data) =>
   instance
     .create(data)
     .then(response => response)
-    .catch(err => err);
+    .catch(err => {
+      return err;
+    });
 
 export { findAll, findOne, create };

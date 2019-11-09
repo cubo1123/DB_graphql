@@ -82,11 +82,9 @@ CREATE TABLE notes (
 CREATE TABLE note_contains (
   id serial NOT NULL,
   quantity double precision NOT NULL,
-  unit serial NOT NULL,
   product serial NOT NULL,
   note serial NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (unit) REFERENCES units(id) ON UPDATE CASCADE ON DELETE RESTRICT,
   FOREIGN KEY (product) REFERENCES products(id) ON UPDATE CASCADE ON DELETE RESTRICT,
   FOREIGN KEY (note) REFERENCES notes(id) ON UPDATE CASCADE ON DELETE RESTRICT
 );

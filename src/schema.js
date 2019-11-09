@@ -25,6 +25,12 @@ export const typeDefs = gql`
     date: String!
     client: ID!
     employee: ID!
+    products: [ContainNote!]!
+  }
+
+  input ContainNote {
+    product: ID!
+    quantity: Float!
   }
 
   input CreateOrder {

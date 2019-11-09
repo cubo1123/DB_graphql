@@ -19,7 +19,7 @@ class NoteContain extends Sequelize.Model {
           type: Sequelize.FLOAT,
           validate: { isNumeric: true }
         },
-        idUnit: {
+        unit: {
           allowNull: false,
           type: Sequelize.RANGE(Sequelize.BIGINT),
           references: {
@@ -29,7 +29,7 @@ class NoteContain extends Sequelize.Model {
           },
           validate: { isNumeric: true }
         },
-        idProduct: {
+        product: {
           allowNull: false,
           type: Sequelize.RANGE(Sequelize.BIGINT),
           references: {
@@ -39,7 +39,7 @@ class NoteContain extends Sequelize.Model {
           },
           validate: { isNumeric: true }
         },
-        idNote: {
+        note: {
           allowNull: false,
           type: Sequelize.RANGE(Sequelize.BIGINT),
           references: {
