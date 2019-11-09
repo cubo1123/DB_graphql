@@ -26,6 +26,7 @@ export {
   createCost,
   getClients,
   getClientByID,
+  createClient,
   getEmployeeByID,
   getEmployees,
   createEmployee,

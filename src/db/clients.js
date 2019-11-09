@@ -14,22 +14,22 @@ Client.init(
     name: {
       allowNull: false,
       type: Sequelize.STRING(50),
-      validate: { isAlpha: true, notEmpty: true }
+      validate: { is: /^[a-zA-Z\s]*$/i, notEmpty: true }
     },
     lastName: {
       allowNull: false,
       type: Sequelize.STRING(50),
-      validate: { isAlpha: true, notEmpty: true }
+      validate: { is: /^[a-zA-Z\s]*$/i, notEmpty: true }
     },
     address: {
       allowNull: false,
       type: Sequelize.STRING(100),
-      validate: { isAlphanumeric: true }
+      validate: { is: /^[A-Za-z0-9\s]+$/g, notEmpty: true }
     },
     telephone: {
       allowNull: false,
       type: Sequelize.STRING(30),
-      validate: { notEmpty: true, isAlphanumeric: true }
+      validate: { notEmpty: true, isNumeric: true }
     },
     creditAvailable: {
       allowNull: false,

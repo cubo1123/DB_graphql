@@ -7,7 +7,19 @@ export const typeDefs = gql`
 
   type Mutation {
     createClient(data: CreateClient!): Client!
-    createCost(data: CreateCost): Cost
+    createEmployee(data: CreateEmployee!): Employee!
+  }
+
+  input CreateEmployee {
+    name: String!
+    lastName: String!
+    address: String!
+    typeEmployee: ID!
+    schedule: ID!
+    startDate: String!
+    status: String!
+    salary: Float!
+    endDate: String!
   }
 
   input CreateClient {
@@ -22,6 +34,7 @@ export const typeDefs = gql`
   input CreateCost {
     value: Float!
     date: String!
+    product: ID!
   }
 
   type Query {
@@ -93,12 +106,11 @@ export const typeDefs = gql`
     id: ID!
     name: String!
     description: String!
-    onStock: Int!
+    onStock: Float!
     cost: [Cost!]!
     price: [Price!]!
     provider: Provider
     unit: Unit!
-    quantity: Float!
   }
 
   type Unit {

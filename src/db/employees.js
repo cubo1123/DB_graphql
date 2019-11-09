@@ -16,19 +16,19 @@ Employee.init(
     name: {
       unique: true,
       type: Sequelize.STRING(30),
-      validate: { isAlpha: true, notEmpty: true }
+      validate: { is: /^[a-zA-Z\s]*$/i, notEmpty: true }
     },
     lastName: {
       unique: true,
       type: Sequelize.STRING(50),
-      validate: { isAlpha: true, notEmpty: true }
+      validate: { is: /^[a-zA-Z\s]*$/i, notEmpty: true }
     },
     address: {
       unique: true,
       type: Sequelize.STRING(100),
-      validate: { notEmpty: true, isAlpha: true }
+      validate: { notEmpty: true, is: /^[A-Za-z0-9\s]+$/g }
     },
-    idTypeEmployee: {
+    typeEmployee: {
       unique: true,
       type: Sequelize.RANGE(Sequelize.BIGINT),
       references: {
@@ -36,9 +36,9 @@ Employee.init(
         key: "id",
         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
       },
-      validate: { isNumeric: true }
+      validate: { isNumeric: true, notEmpty: true }
     },
-    idSchedule: {
+    schedule: {
       unique: true,
       type: Sequelize.RANGE(Sequelize.BIGINT),
       references: {
@@ -46,12 +46,12 @@ Employee.init(
         key: "id",
         deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
       },
-      validate: { isNumeric: true }
+      validate: { isNumeric: true, notEmpty: true }
     },
     startDate: {
       unique: true,
       type: "TIMESTAMP",
-      validate: { isNumeric: true }
+      validate: { isDate: true, notEmpty: true }
     },
     status: {
       unique: true,
@@ -61,9 +61,13 @@ Employee.init(
     salary: {
       unique: true,
       type: Sequelize.FLOAT,
-      validate: { isNumeric: true }
+      validate: { isNumeric: true, notEmpty: true }
     },
-    endDate: { unique: true, type: "TIMESTAMP", validate: { isNumeric: true } }
+    endDate: {
+      unique: true,
+      type: "TIMESTAMP",
+      validate: { isDate: true, notEmpty: true }
+    }
   },
   { sequelize, timestamps: false, modelName: "employees" }
 );

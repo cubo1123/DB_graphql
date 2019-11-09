@@ -1,6 +1,7 @@
 import Sequelize from "sequelize";
 import { sequelize } from "./model";
-
+import { ProductPostgreSql } from "./products";
+import { from } from "apollo-link";
 class Cost extends Sequelize.Model {}
 Cost.init(
   {
@@ -20,6 +21,13 @@ Cost.init(
       allowNull: false,
       type: Sequelize.FLOAT,
       validate: { isNumeric: true }
+    },
+    product: {
+      allowNull: false,
+      type: Sequelize.RANGE(Sequelize.BIGINT),
+      validate: {
+        isNumeric: true
+      }
     }
   },
   { sequelize, timestamps: false, modelName: "costs" }
