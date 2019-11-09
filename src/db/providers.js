@@ -14,17 +14,17 @@ Provider.init(
     name: {
       allowNull: false,
       type: Sequelize.STRING(30),
-      validate: { isAlpha: true, notEmpty: true }
+      validate: { is: /^[a-zA-Z\s]*$/i, notEmpty: true }
     },
     telephone: {
       allowNull: false,
       type: Sequelize.STRING(15),
-      validate: { isAlpha: true }
+      validate: { isNumeric: true }
     },
     address: {
       allowNull: false,
       type: Sequelize.STRING(50),
-      validate: { isAlpha: true, notEmpty: true }
+      validate: { is: /^[A-Za-z0-9\s]+$/g, notEmpty: true }
     }
   },
   { sequelize, timestamps: false, modelName: "providers" }

@@ -65,7 +65,7 @@ CREATE TABLE employees (
   "startDate" timestamptz NOT NULL,
   status varchar(30) NOT NULL,
   salary float(8) NOT NULL,
-  "endDate" timestamptz NOT NULL,
+  "endDate" timestamptz,
   PRIMARY KEY(id),
   FOREIGN KEY("typeEmployee") REFERENCES type_employees(id) ON UPDATE CASCADE ON DELETE RESTRICT,
   FOREIGN KEY(schedule) REFERENCES schedules(id) ON UPDATE CASCADE ON DELETE RESTRICT
@@ -93,8 +93,8 @@ CREATE TABLE note_contains (
 CREATE TABLE orders (
   id serial NOT NULL,
   provider serial NOT NULL,
-  "createdat" timestamptz NOT NULL,
-  "arrivedat" timestamptz,
+  "createdAt" timestamptz NOT NULL,
+  "arrivedAt" timestamptz,
   PRIMARY KEY(id),
   FOREIGN KEY (provider) REFERENCES providers(id) ON UPDATE CASCADE ON DELETE RESTRICT
 );

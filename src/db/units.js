@@ -14,7 +14,7 @@ Unit.init(
     name: {
       allowNull: false,
       type: Sequelize.STRING(30),
-      validate: { isAlpha: true, notEmpty: true }
+      validate: { is: /^[a-zA-Z\s]*$/i, notEmpty: true }
     }
   },
   { sequelize, timestamps: false, modelName: "units" }

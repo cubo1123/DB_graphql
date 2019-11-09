@@ -8,6 +8,44 @@ export const typeDefs = gql`
   type Mutation {
     createClient(data: CreateClient!): Client!
     createEmployee(data: CreateEmployee!): Employee!
+    createSchedule(data: CreateSchedule!): Schedule!
+    createNote(data: CreateNote!): Note!
+    createOrder(data: CreateOrder!): Order!
+    createProvider(data: CreateProvider!): Provider!
+    createTypeEmployee(data: CreateTypeEmployee!): TypeEmployee!
+    createUnit(data: CreateUnit!): Unit!
+  }
+
+  input CreateSchedule {
+    start: String!
+    finish: String!
+  }
+
+  input CreateNote {
+    date: String!
+    client: ID!
+    employee: ID!
+  }
+
+  input CreateOrder {
+    provider: ID!
+    createdAt: String!
+    arrivedAt: String
+  }
+
+  input CreateProvider {
+    name: String!
+    telephone: String!
+    address: String!
+  }
+
+  input CreateTypeEmployee {
+    description: String!
+    job: String!
+  }
+
+  input CreateUnit {
+    name: String!
   }
 
   input CreateEmployee {
@@ -19,7 +57,7 @@ export const typeDefs = gql`
     startDate: String!
     status: String!
     salary: Float!
-    endDate: String!
+    endDate: String
   }
 
   input CreateClient {

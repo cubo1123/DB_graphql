@@ -14,12 +14,12 @@ TypeEmployee.init(
     description: {
       type: Sequelize.STRING(30),
       allowNull: false,
-      validate: { isAlpha: true, notEmpty: true }
+      validate: { is: /^[a-zA-Z\s]*$/i, notEmpty: true }
     },
     job: {
       type: Sequelize.STRING(30),
       allowNull: false,
-      validate: { isAlpha: true, notEmpty: true }
+      validate: { is: /^[a-zA-Z\s]*$/i, notEmpty: true }
     }
   },
   { sequelize, timestamps: false, modelName: "type_employees" }
