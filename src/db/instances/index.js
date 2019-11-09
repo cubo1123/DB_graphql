@@ -10,7 +10,8 @@ import { getNoteByID, getNotes, createNote } from "./Notes";
 import {
   getOrdersContain,
   getOrdersContainById,
-  createOrderContain
+  createOrderContain,
+  createOrderContainsMany
 } from "./OrderContain";
 import { getOrder, getOrderById, createOrder } from "./Order";
 import { getPrices, getPricesById, createPrice } from "./Price";
@@ -39,6 +40,7 @@ export {
   getOrdersContain,
   getOrdersContainById,
   createOrderContain,
+  createOrderContainsMany,
   getOrder,
   getOrderById,
   createOrder,

@@ -25,10 +25,10 @@ export const typeDefs = gql`
     date: String!
     client: ID!
     employee: ID!
-    products: [ContainNote!]!
+    products: [Contain!]!
   }
 
-  input ContainNote {
+  input Contain {
     product: ID!
     quantity: Float!
   }
@@ -36,7 +36,7 @@ export const typeDefs = gql`
   input CreateOrder {
     provider: ID!
     createdAt: String!
-    arrivedAt: String
+    products: [Contain!]!
   }
 
   input CreateProvider {

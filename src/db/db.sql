@@ -100,10 +100,8 @@ CREATE TABLE order_contains (
   id serial NOT NULL,
   product serial NOT NULL,
   "belongTo" serial NOT NULL,
-  unit serial NOT NULL,
   quantity float(8) NOT NULL,
   PRIMARY KEY(id),
   FOREIGN KEY (product) REFERENCES products(id) ON UPDATE CASCADE ON DELETE RESTRICT,
-  FOREIGN KEY ("belongTo") REFERENCES orders(id) ON UPDATE CASCADE ON DELETE RESTRICT,
-  FOREIGN KEY (unit) REFERENCES units(id) ON UPDATE CASCADE ON DELETE RESTRICT
+  FOREIGN KEY ("belongTo") REFERENCES orders(id) ON UPDATE CASCADE ON DELETE RESTRICT
 );

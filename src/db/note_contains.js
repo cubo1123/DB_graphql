@@ -19,16 +19,6 @@ class NoteContain extends Sequelize.Model {
           type: Sequelize.FLOAT,
           validate: { isNumeric: true }
         },
-        unit: {
-          allowNull: false,
-          type: Sequelize.RANGE(Sequelize.BIGINT),
-          references: {
-            model: Unit,
-            key: "id",
-            deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-          },
-          validate: { isNumeric: true }
-        },
         product: {
           allowNull: false,
           type: Sequelize.RANGE(Sequelize.BIGINT),

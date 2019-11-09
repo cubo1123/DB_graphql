@@ -1,5 +1,4 @@
 import Sequelize from "sequelize";
-import { Unit } from "./units";
 import { Product } from "./products";
 import { Order } from "./orders";
 
@@ -19,17 +18,7 @@ class OrderContain extends Sequelize.Model {
           type: Sequelize.FLOAT,
           validate: { isNumeric: true }
         },
-        idUnit: {
-          allowNull: false,
-          type: Sequelize.RANGE(Sequelize.BIGINT),
-          references: {
-            model: Unit,
-            key: "id",
-            deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-          },
-          validate: { isNumeric: true }
-        },
-        idProduct: {
+        product: {
           allowNull: false,
           type: Sequelize.RANGE(Sequelize.BIGINT),
           references: {
@@ -39,7 +28,7 @@ class OrderContain extends Sequelize.Model {
           },
           validate: { isNumeric: true }
         },
-        idOrder: {
+        belongTo: {
           allowNull: false,
           type: Sequelize.RANGE(Sequelize.BIGINT),
           references: {

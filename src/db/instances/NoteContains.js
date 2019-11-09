@@ -11,7 +11,6 @@ const createContainsMany = (db, data) => {
     const prom = create(db, {
       product: product.product,
       quantity: product.quantity,
-      unit: "1",
       note: product.note
     });
     products.push(prom);
