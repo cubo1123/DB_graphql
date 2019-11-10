@@ -8,18 +8,27 @@ export const typeDefs = gql`
   type Mutation {
     createClient(data: CreateClient!): Client!
     updateClient(data: UpdateClient!, id: ID!): Client!
+
     createEmployee(data: CreateEmployee!): Employee!
     updateEmployee(data: UpdateEmployee!, id: ID!): Employee!
+
     createSchedule(data: CreateSchedule!): Schedule!
     updateSchedule(data: UpdateSchedule, id: ID!): Schedule!
+
     createNote(data: CreateNote!): Note!
+
     createOrder(data: CreateOrder!): Order!
+
     createProvider(data: CreateProvider!): Provider!
     updateProvider(data: UpdateProvider!, id: ID!): Provider!
+
     createTypeEmployee(data: CreateTypeEmployee!): TypeEmployee!
     updateTypeEmployee(data: UpdateTypeEmployee!, id: ID!): TypeEmployee!
+
     createUnit(data: CreateUnit!): Unit!
     updateUnit(data: UpdateUnit!, id: ID!): Unit!
+
+    createProduct(data: CreateProduct!): Product!
   }
 
   input UpdateEmployee {
@@ -90,6 +99,15 @@ export const typeDefs = gql`
     name: String!
   }
 
+  input CreateProduct {
+    name: String!
+    description: String!
+    onStock: Float!
+    cost: Float!
+    price: Float!
+    provider: ID!
+    unit: ID!
+  }
   input CreateEmployee {
     name: String!
     lastName: String!
@@ -194,8 +212,6 @@ export const typeDefs = gql`
     name: String!
     description: String!
     onStock: Float!
-    cost: [Cost!]!
-    price: [Price!]!
     provider: Provider
     unit: Unit!
   }

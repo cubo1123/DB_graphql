@@ -1,7 +1,6 @@
 import Sequelize from "sequelize";
-import { Cost } from "./costs";
-import { Price } from "./prices";
-import { Provider } from "./providers";
+import { ProviderPostgreSql } from "./providers";
+import { UnitPostgreSql } from "./units";
 class Product extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
@@ -28,34 +27,14 @@ class Product extends Sequelize.Model {
           type: Sequelize.FLOAT,
           validate: { isNumeric: true }
         },
-        idCost: {
+        provider: {
           allowNull: false,
           type: Sequelize.RANGE(Sequelize.BIGINT),
-          references: {
-            model: Cost,
-            key: "id",
-            deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-          },
           validate: { isNumeric: true }
         },
-        idPrice: {
+        unit: {
           allowNull: false,
           type: Sequelize.RANGE(Sequelize.BIGINT),
-          references: {
-            model: Price,
-            key: "id",
-            deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-          },
-          validate: { isNumeric: true }
-        },
-        idProvider: {
-          allowNull: false,
-          type: Sequelize.RANGE(Sequelize.BIGINT),
-          references: {
-            model: Provider,
-            key: "id",
-            deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-          },
           validate: { isNumeric: true }
         }
       },

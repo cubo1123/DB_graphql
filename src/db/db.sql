@@ -35,7 +35,6 @@ CREATE TABLE products (
   "onStock" float(8) NOT NULL,
   provider serial NOT NULL,
   unit serial NOT NULL,
-  quantity float(8) NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (provider) REFERENCES providers(id) ON UPDATE CASCADE ON DELETE RESTRICT,
   FOREIGN KEY (unit) REFERENCES units(id) ON UPDATE CASCADE ON DELETE RESTRICT
