@@ -29,6 +29,7 @@ export const typeDefs = gql`
     updateUnit(data: UpdateUnit!, id: ID!): Unit!
 
     createProduct(data: CreateProduct!): Product!
+    updateProduct(data: UpdateProduct!): Product!
   }
 
   input UpdateEmployee {
@@ -67,7 +68,7 @@ export const typeDefs = gql`
   }
 
   input CreateNote {
-    date: String!
+    date: String
     client: ID!
     employee: ID!
     products: [Contain!]!
@@ -80,7 +81,7 @@ export const typeDefs = gql`
 
   input CreateOrder {
     provider: ID!
-    createdAt: String!
+    createdAt: String
     products: [Contain!]!
   }
 
@@ -107,6 +108,16 @@ export const typeDefs = gql`
     price: Float!
     provider: ID!
     unit: ID!
+  }
+
+  input UpdateProduct {
+    name: String
+    description: String
+    onStock: Float
+    cost: Float
+    price: Float
+    provider: ID
+    unit: ID
   }
   input CreateEmployee {
     name: String!

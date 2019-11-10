@@ -13,7 +13,7 @@ class Order extends Sequelize.Model {
           autoIncrement: true
         },
         createdAt: {
-          allowNull: false,
+          allowNull: true,
           type: Sequelize.DATE
         },
         arrivedAt: {
@@ -30,7 +30,7 @@ class Order extends Sequelize.Model {
           validate: { isNumeric: true }
         }
       },
-      { sequelize, timestamps: false, modelName: "orders" }
+      { sequelize, timestamps: false }
     );
   }
 }

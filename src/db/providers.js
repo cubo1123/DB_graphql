@@ -27,7 +27,7 @@ class Provider extends Sequelize.Model {
           validate: { is: /^[A-Za-z0-9\s]+$/g, notEmpty: true }
         }
       },
-      { sequelize, timestamps: false, modelName: "providers" }
+      { sequelize, timestamps: false }
     );
   }
 }

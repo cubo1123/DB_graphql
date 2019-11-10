@@ -1,5 +1,7 @@
-import { createNote as create } from "../../db/instances";
-import { createContainsMany } from "../../db/instances";
+import {
+  createNote as create,
+  createNoteContainsMany
+} from "../../db/instances";
 const createNote = (
   parent,
   { data },
@@ -7,7 +9,6 @@ const createNote = (
   info
 ) => {
   return create(NotePostgreSql, {
-    date: data.date,
     client: data.client,
     employee: data.employee,
     products: data.products
@@ -16,7 +17,11 @@ const createNote = (
       let productsToSave = data.products.map(product => {
         return Object.assign(product, { note: note.id });
       });
-      return createContainsMany(NoteContainPostgreSql, productsToSave, note.id)
+      return createNoteContainsMany(
+        NoteContainPostgreSql,
+        productsToSave,
+        note.id
+      )
         .then(contains => {
           return note;
         })

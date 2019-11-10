@@ -20,7 +20,7 @@ class Schedule extends Sequelize.Model {
           type: Sequelize.TIME
         }
       },
-      { sequelize, timestamps: false, modelName: "schedules" }
+      { sequelize, timestamps: false }
     );
   }
 }

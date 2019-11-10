@@ -9,8 +9,7 @@ const createOrder = (
   info
 ) => {
   return create(OrderPostgreSql, {
-    provider: data.provider,
-    createdAt: data.createdAt
+    provider: data.provider
   })
     .then(order => {
       let productsToSave = data.products.map(product => {

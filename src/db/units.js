@@ -17,7 +17,7 @@ class Unit extends Sequelize.Model {
           validate: { is: /^[a-zA-Z\s]*$/i, notEmpty: true }
         }
       },
-      { sequelize, timestamps: false, modelName: "units" }
+      { sequelize, timestamps: false }
     );
   }
 }

@@ -69,7 +69,7 @@ class Employee extends Sequelize.Model {
           validate: { isDate: true, notEmpty: true }
         }
       },
-      { sequelize, timestamps: false, modelName: "employees" }
+      { sequelize, timestamps: false }
     );
   }
 }

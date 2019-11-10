@@ -40,7 +40,7 @@ class NoteContain extends Sequelize.Model {
           validate: { isNumeric: true }
         }
       },
-      { sequelize, timestamps: false, modelName: "note_contains" }
+      { sequelize, timestamps: false }
     );
   }
 }

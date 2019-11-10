@@ -42,7 +42,7 @@ class Client extends Sequelize.Model {
           validate: { isNumeric: true }
         }
       },
-      { sequelize, timestamps: false, modelName: "clients" }
+      { sequelize, timestamps: false }
     );
   }
 }

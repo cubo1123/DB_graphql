@@ -38,8 +38,12 @@ class Product extends Sequelize.Model {
           validate: { isNumeric: true }
         }
       },
-      { sequelize, timestamps: false, modelName: "products" }
+      { sequelize, timestamps: false }
     );
+  }
+  static associate(models) {
+    this.hasOne(UnitPostgreSql);
+    this.hasOne(ProviderPostgreSql);
   }
 }
 

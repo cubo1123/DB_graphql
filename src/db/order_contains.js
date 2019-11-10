@@ -39,7 +39,7 @@ class OrderContain extends Sequelize.Model {
           validate: { isNumeric: true }
         }
       },
-      { sequelize, timestamps: false, modelName: "order_contains" }
+      { sequelize, timestamps: false }
     );
   }
 }

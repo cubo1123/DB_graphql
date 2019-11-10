@@ -14,7 +14,7 @@ class Note extends Sequelize.Model {
           autoIncrement: true
         },
         date: {
-          allowNull: false,
+          allowNull: true,
           type: Sequelize.DATE
         },
         client: {
@@ -38,7 +38,7 @@ class Note extends Sequelize.Model {
           validate: { isNumeric: true }
         }
       },
-      { sequelize, timestamps: false, modelName: "notes" }
+      { sequelize, timestamps: false }
     );
   }
 }

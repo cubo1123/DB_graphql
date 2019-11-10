@@ -29,7 +29,7 @@ class Price extends Sequelize.Model {
           }
         }
       },
-      { sequelize, timestamps: false, modelName: "prices" }
+      { sequelize, timestamps: false }
     );
   }
 }

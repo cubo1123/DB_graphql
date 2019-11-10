@@ -16,7 +16,12 @@ import {
   getNotesContain,
   createNoteContain
 } from "./NoteContains";
-import { getNoteByID, getNotes, createNote } from "./Notes";
+import {
+  getNoteByID,
+  getNotes,
+  createNote,
+  createNoteContainsMany
+} from "./Notes";
 import {
   getOrdersContain,
   getOrdersContainById,
@@ -25,7 +30,7 @@ import {
 } from "./OrderContain";
 import { getOrder, getOrderById, createOrder } from "./Order";
 import { getPrices, getPricesById, createPrice } from "./Price";
-import { getProducts, getProductById, createProduct } from "./Product";
+import { getProducts, getProductById, createProduct } from "./Products";
 import {
   getProviders,
   getProviderById,
@@ -92,5 +97,6 @@ export {
   updateEmployee,
   updateSchedule,
   updateTypeEmployee,
-  updateUnit
+  updateUnit,
+  createNoteContainsMany
 };
