@@ -1,5 +1,5 @@
-import { createNote as create } from "../../db/instances/Notes";
-import { createContainsMany } from "../../db/instances/NoteContains";
+import { createNote as create } from "../../db/instances";
+import { createContainsMany } from "../../db/instances";
 const createNote = (
   parent,
   { data },

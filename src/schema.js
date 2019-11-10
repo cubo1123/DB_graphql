@@ -9,14 +9,39 @@ export const typeDefs = gql`
     createClient(data: CreateClient!): Client!
     updateClient(data: UpdateClient!, id: ID!): Client!
     createEmployee(data: CreateEmployee!): Employee!
+    updateEmployee(data: UpdateEmployee!, id: ID!): Employee!
     createSchedule(data: CreateSchedule!): Schedule!
+    updateSchedule(data: UpdateSchedule, id: ID!): Schedule!
     createNote(data: CreateNote!): Note!
     createOrder(data: CreateOrder!): Order!
     createProvider(data: CreateProvider!): Provider!
+    updateProvider(data: UpdateProvider!, id: ID!): Provider!
     createTypeEmployee(data: CreateTypeEmployee!): TypeEmployee!
     createUnit(data: CreateUnit!): Unit!
   }
 
+  input UpdateEmployee {
+    name: String
+    lastName: String
+    address: String
+    typeEmployee: ID
+    schedule: ID
+    startDate: String
+    status: String
+    salary: Float
+    endDate: String
+  }
+
+  input UpdateSchedule {
+    finish: String
+    start: String
+  }
+
+  input UpdateProvider {
+    name: String
+    telephone: String
+    address: String
+  }
   input CreateSchedule {
     finish: String!
     start: String!

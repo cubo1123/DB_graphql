@@ -5,7 +5,12 @@ import {
   updateClient
 } from "./Clients";
 import { getCosts, getCostById, createCost } from "./Cost";
-import { getEmployeeByID, getEmployees, createEmployee } from "./Employees";
+import {
+  getEmployeeByID,
+  getEmployees,
+  createEmployee,
+  updateEmployee
+} from "./Employees";
 import {
   getNoteContainByID,
   getNotesContain,
@@ -67,5 +72,6 @@ export {
   getUnits,
   getUnitsById,
   createUnit,
-  updateClient
+  updateClient,
+  updateEmployee
 };

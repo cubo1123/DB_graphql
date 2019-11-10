@@ -1,4 +1,7 @@
-import { createEmployee as create } from "../../db/instances/Employees";
+import {
+  createEmployee as create,
+  updateEmployee as update
+} from "../../db/instances/Employees";
 const createEmployee = (parent, args, { EmployeePostgreSql }, info) =>
   create(EmployeePostgreSql, {
     name: args.data.name,
@@ -11,5 +14,7 @@ const createEmployee = (parent, args, { EmployeePostgreSql }, info) =>
     salary: args.data.salary,
     endDate: args.data.endDate
   });
+const updateEmployee = (parent, { data, id }, { EmployeePostgreSql }, info) =>
+  update(EmployeePostgreSql, data, id);
 
-export { createEmployee };
+export { createEmployee, updateEmployee };
