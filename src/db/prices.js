@@ -11,15 +11,22 @@ class Price extends Sequelize.Model {
           unique: true,
           autoIncrement: true
         },
-        date: {
-          allowNull: false,
-          type: "TIMESTAMP",
-          validate: { isNumeric: true }
-        },
         value: {
           allowNull: false,
           type: Sequelize.FLOAT,
           validate: { isNumeric: true }
+        },
+        date: {
+          allowNull: true,
+          type: Sequelize.DATE,
+          validate: { isDate: true }
+        },
+        product: {
+          allowNull: false,
+          type: Sequelize.RANGE(Sequelize.BIGINT),
+          validate: {
+            isNumeric: true
+          }
         }
       },
       { sequelize, timestamps: false, modelName: "prices" }

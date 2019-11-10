@@ -41,7 +41,7 @@ CREATE TABLE products (
 );
 CREATE TABLE costs (
   id serial NOT NULL PRIMARY KEY,
-  date timestamptz NOT NULL,
+  date timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
   value float(8) NOT NULL,
   product serial NOT NULL,
   FOREIGN KEY (product) REFERENCES products(id) ON UPDATE CASCADE ON DELETE CASCADE
@@ -49,7 +49,7 @@ CREATE TABLE costs (
 CREATE TABLE prices (
   id serial NOT NULL,
   value float(8) NOT NULL,
-  date timestamptz NOT NULL,
+  date timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
   product serial NOT NULL,
   FOREIGN KEY (product) REFERENCES products(id) ON UPDATE CASCADE ON DELETE CASCADE,
   PRIMARY KEY(id)

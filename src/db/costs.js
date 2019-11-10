@@ -12,7 +12,7 @@ class Cost extends Sequelize.Model {
           autoIncrement: true
         },
         date: {
-          allowNull: false,
+          allowNull: true,
           type: Sequelize.DATE,
           validate: { isDate: true }
         },
