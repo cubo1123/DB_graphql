@@ -1,4 +1,4 @@
-import { findAll, findOne, create } from "../query";
+import { findAll, findOne, create, updateOne } from "../query";
 
 const createTypeEmployee = (db, data) => create(db, data);
 
@@ -6,4 +6,6 @@ const getTypes = db => findAll(db);
 
 const getTypeByID = (db, id) => findOne(db, id);
 
-export { getTypeByID, getTypes, createTypeEmployee };
+const updateTypeEmployee = (db, data, id) => updateOne(db, data, id);
+
+export { getTypeByID, getTypes, createTypeEmployee, updateTypeEmployee };

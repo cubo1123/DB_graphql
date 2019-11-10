@@ -17,7 +17,9 @@ export const typeDefs = gql`
     createProvider(data: CreateProvider!): Provider!
     updateProvider(data: UpdateProvider!, id: ID!): Provider!
     createTypeEmployee(data: CreateTypeEmployee!): TypeEmployee!
+    updateTypeEmployee(data: UpdateTypeEmployee!, id: ID!): TypeEmployee!
     createUnit(data: CreateUnit!): Unit!
+    updateUnit(data: UpdateUnit!, id: ID!): Unit!
   }
 
   input UpdateEmployee {
@@ -32,6 +34,14 @@ export const typeDefs = gql`
     endDate: String
   }
 
+  input UpdateTypeEmployee {
+    description: String
+    job: String
+  }
+
+  input UpdateUnit {
+    name: String
+  }
   input UpdateSchedule {
     finish: String
     start: String

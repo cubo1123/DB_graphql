@@ -38,7 +38,12 @@ import {
   createSchedule,
   updateSchedule
 } from "./Schedule";
-import { getTypeByID, getTypes, createTypeEmployee } from "./TypeEmployee";
+import {
+  getTypeByID,
+  getTypes,
+  createTypeEmployee,
+  updateTypeEmployee
+} from "./TypeEmployee";
 import { getUnits, getUnitsById, createUnit } from "./Unit";
 
 export {
@@ -85,5 +90,6 @@ export {
   createUnit,
   updateClient,
   updateEmployee,
-  updateSchedule
+  updateSchedule,
+  updateTypeEmployee
 };
