@@ -1,5 +1,5 @@
 import { createClient, updateClient } from "./Clients";
-import { createSchedule } from "./Schedule";
+import { createSchedule, updateSchedule } from "./Schedule";
 import { createEmployee, updateEmployee } from "./Employees";
 import { createNote } from "./Notes";
 import { createOrder } from "./Order";
@@ -16,5 +16,6 @@ export default {
   createTypeEmployee,
   createUnit,
   updateClient,
-  updateEmployee
+  updateEmployee,
+  updateSchedule
 };
