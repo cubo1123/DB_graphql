@@ -13,17 +13,11 @@ const createOrder = (
     createdAt: data.createdAt
   })
     .then(order => {
-      console.log("se creo la orden");
-      console.log(order.id);
-      console.log(data.products);
       let productsToSave = data.products.map(product => {
         return Object.assign(product, { belongTo: order.id });
       });
-      console.log("como quedaron los productos");
-      console.log(productsToSave);
       return createOrderContainsMany(OrderContainPostgreSql, productsToSave)
         .then(contains => {
-          console.log(contains);
           return order;
         })
         .catch(err => err);

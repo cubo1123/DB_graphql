@@ -1,4 +1,8 @@
-import { createClient as create } from "../../db/instances";
+import {
+  createClient as create,
+  updateClient as update,
+  getClientByID
+} from "../../db/instances";
 
 const createClient = (parent, args, { ClientPostgreSql }, info) => {
   return create(ClientPostgreSql, {
@@ -10,5 +14,13 @@ const createClient = (parent, args, { ClientPostgreSql }, info) => {
     creditUsed: args.data.creditUsed
   });
 };
-
-export { createClient };
+const updateClient = (parent, { data, id }, { ClientPostgreSql }, info) => {
+  return update(ClientPostgreSql, data, id)
+    .then(response => {
+      return getClientByID(ClientPostgreSql, id);
+    })
+    .catch(err => {
+      return err;
+    });
+};
+export { createClient, updateClient };

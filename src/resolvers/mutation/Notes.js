@@ -18,12 +18,9 @@ const createNote = (
       });
       return createContainsMany(NoteContainPostgreSql, productsToSave, note.id)
         .then(contains => {
-          console.log("TODO BIEN");
-          console.log(contains);
           return note;
         })
         .catch(err => {
-          console.log("ERROR");
           return err;
         });
     })

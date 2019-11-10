@@ -14,6 +14,11 @@ const findOne = (instance, id) =>
     .then(data => data)
     .catch(err => err);
 
+const updateOne = (instance, data, id) =>
+  instance
+    .update(data, { where: { id } })
+    .then(response => response)
+    .catch(err => err);
 const create = (instance, data) =>
   instance
     .create(data)
@@ -22,4 +27,4 @@ const create = (instance, data) =>
       return err;
     });
 
-export { findAll, findOne, create };
+export { findAll, findOne, create, updateOne };

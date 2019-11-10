@@ -7,6 +7,7 @@ export const typeDefs = gql`
 
   type Mutation {
     createClient(data: CreateClient!): Client!
+    updateClient(data: UpdateClient!, id: ID!): Client!
     createEmployee(data: CreateEmployee!): Employee!
     createSchedule(data: CreateSchedule!): Schedule!
     createNote(data: CreateNote!): Note!
@@ -73,6 +74,15 @@ export const typeDefs = gql`
     telephone: String!
     creditAvailable: Float!
     creditUsed: Float!
+  }
+
+  input UpdateClient {
+    name: String
+    lastName: String
+    address: String
+    telephone: String
+    creditAvailable: Float
+    creditUsed: Float
   }
 
   input CreateCost {

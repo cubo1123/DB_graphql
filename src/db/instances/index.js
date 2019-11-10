@@ -1,4 +1,9 @@
-import { getClients, getClientByID, createClient } from "./Clients";
+import {
+  getClients,
+  getClientByID,
+  createClient,
+  updateClient
+} from "./Clients";
 import { getCosts, getCostById, createCost } from "./Cost";
 import { getEmployeeByID, getEmployees, createEmployee } from "./Employees";
 import {
@@ -61,5 +66,6 @@ export {
   createTypeEmployee,
   getUnits,
   getUnitsById,
-  createUnit
+  createUnit,
+  updateClient
 };
