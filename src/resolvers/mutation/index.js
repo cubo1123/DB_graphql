@@ -3,7 +3,7 @@ import { createSchedule, updateSchedule } from "./Schedule";
 import { createEmployee, updateEmployee } from "./Employees";
 import { createNote } from "./Notes";
 import { createOrder } from "./Order";
-import { createProvider } from "./Provider";
+import { createProvider, updateProvider } from "./Provider";
 import { createTypeEmployee } from "./TypeEmployee";
 import { createUnit } from "./Unit";
 export default {
@@ -17,5 +17,6 @@ export default {
   createUnit,
   updateClient,
   updateEmployee,
-  updateSchedule
+  updateSchedule,
+  updateProvider
 };

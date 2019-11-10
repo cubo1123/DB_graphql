@@ -1,6 +1,7 @@
-import { findAll, findOne, create } from "../query";
+import { findAll, findOne, create, updateOne } from "../query";
 
 const createProvider = (db, data) => create(db, data);
 const getProviders = db => findAll(db);
 const getProviderById = (db, id) => findOne(db, id);
-export { getProviderById, getProviders, createProvider };
+const updateProvider = (db, data, id) => updateOne(db, data, id);
+export { getProviderById, getProviders, createProvider, updateProvider };

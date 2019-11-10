@@ -26,7 +26,12 @@ import {
 import { getOrder, getOrderById, createOrder } from "./Order";
 import { getPrices, getPricesById, createPrice } from "./Price";
 import { getProducts, getProductById, createProduct } from "./Product";
-import { getProviders, getProviderById, createProvider } from "./Provider";
+import {
+  getProviders,
+  getProviderById,
+  createProvider,
+  updateProvider
+} from "./Provider";
 import {
   getSchedules,
   getScheduleByID,
@@ -68,6 +73,7 @@ export {
   getProviders,
   getProviderById,
   createProvider,
+  updateProvider,
   getSchedules,
   getScheduleByID,
   createSchedule,
