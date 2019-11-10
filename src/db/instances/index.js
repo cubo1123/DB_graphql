@@ -44,7 +44,7 @@ import {
   createTypeEmployee,
   updateTypeEmployee
 } from "./TypeEmployee";
-import { getUnits, getUnitsById, createUnit } from "./Unit";
+import { getUnits, getUnitsById, createUnit, updateUnit } from "./Unit";
 
 export {
   getCosts,
@@ -91,5 +91,6 @@ export {
   updateClient,
   updateEmployee,
   updateSchedule,
-  updateTypeEmployee
+  updateTypeEmployee,
+  updateUnit
 };

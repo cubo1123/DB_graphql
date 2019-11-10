@@ -1,8 +1,10 @@
-import { findAll, findOne, create } from "../query";
+import { findAll, findOne, create, updateOne } from "../query";
 
-const createUnit = (db, data) => create(UnitPostgreSql, data);
-const getUnits = db => findAll(UnitPostgreSql);
+const createUnit = (db, data) => create(db, data);
+const getUnits = db => findAll(db);
 
-const getUnitsById = (db, id) => findOne(UnitPostgreSql, id);
+const getUnitsById = (db, id) => findOne(db, id);
 
-export { getUnitsById, getUnits, createUnit };
+const updateUnit = (db, data, id) => updateOne(db, data, id);
+
+export { getUnitsById, getUnits, createUnit, updateUnit };
