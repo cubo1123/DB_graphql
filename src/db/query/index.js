@@ -20,6 +20,12 @@ const updateOne = (instance, data, id) =>
     .then(response => response)
     .catch(err => err);
 
+const deleteOne = (instance, id) =>
+  instance
+    .destroy({ where: { id } })
+    .then(response => response)
+    .catch(err => err);
+
 const create = (instance, data) =>
   instance
     .create(data)
@@ -28,4 +34,4 @@ const create = (instance, data) =>
       return err;
     });
 
-export { findAll, findOne, create, updateOne };
+export { findAll, findOne, create, updateOne, deleteOne };

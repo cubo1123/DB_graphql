@@ -4,7 +4,7 @@ import {
   createClient,
   updateClient
 } from "./Clients";
-import { getCosts, getCostById, createCost } from "./Cost";
+import { getCosts, getCostById, createCost, deleteCost } from "./Cost";
 import {
   getEmployeeByID,
   getEmployees,
@@ -29,7 +29,7 @@ import {
   createOrderContainsMany
 } from "./OrderContain";
 import { getOrder, getOrderById, createOrder } from "./Order";
-import { getPrices, getPricesById, createPrice } from "./Price";
+import { getPrices, getPricesById, createPrice, deletePrice } from "./Price";
 import {
   getProducts,
   getProductById,
@@ -84,6 +84,7 @@ export {
   getPricesById,
   createPrice,
   getProducts,
+  deletePrice,
   getProductById,
   createProduct,
   getProviders,
@@ -101,6 +102,7 @@ export {
   createUnit,
   updateClient,
   updateEmployee,
+  deleteCost,
   updateSchedule,
   updateTypeEmployee,
   updateUnit,

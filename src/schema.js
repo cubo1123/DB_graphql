@@ -21,15 +21,21 @@ export const typeDefs = gql`
 
     createProvider(data: CreateProvider!): Provider!
     updateProvider(data: UpdateProvider!, id: ID!): Provider!
+    deleteProvider(newId: ID!, id: ID!): Boolean!
 
     createTypeEmployee(data: CreateTypeEmployee!): TypeEmployee!
     updateTypeEmployee(data: UpdateTypeEmployee!, id: ID!): TypeEmployee!
+    deleteTypeEmployee(newId: ID!, id: ID!): Boolean!
 
     createUnit(data: CreateUnit!): Unit!
     updateUnit(data: UpdateUnit!, id: ID!): Unit!
+    deleteUnit(newId: ID!, id: ID!): Boolean!
 
     createProduct(data: CreateProduct!): Product!
     updateProduct(data: UpdateProduct!, id: ID!): Product!
+
+    deletePrice(id: ID!): Boolean!
+    deleteCost(id: ID!): Boolean!
   }
 
   input UpdateEmployee {

@@ -1,4 +1,4 @@
-import { findAll, findOne, create } from "../query";
+import { findAll, findOne, create, deleteOne } from "../query";
 
 const createCost = (db, data) => create(db, data);
 const getCostById = (db, id) =>
@@ -9,4 +9,7 @@ const getCostById = (db, id) =>
       return err;
     });
 const getCosts = db => findAll(db);
-export { getCostById, getCosts, createCost };
+const deleteCost = (db, id) => {
+  return deleteOne(db, id);
+};
+export { getCostById, getCosts, createCost, deleteCost };

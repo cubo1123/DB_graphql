@@ -1,7 +1,8 @@
-import { findAll, findOne, create } from "../query";
+import { findAll, findOne, create, deleteOne } from "../query";
 
 const createPrice = (db, data) => create(db, data);
 const getPrices = db => findAll(db);
+const deletePrice = (db, id) => deleteOne(db, id);
 const getPricesById = (db, id) =>
   db
     .findAll({ where: { product: id } })
@@ -9,4 +10,4 @@ const getPricesById = (db, id) =>
     .catch(err => {
       throw err;
     });
-export { getPricesById, getPrices, createPrice };
+export { getPricesById, getPrices, createPrice, deletePrice };

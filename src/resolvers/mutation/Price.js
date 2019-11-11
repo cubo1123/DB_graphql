@@ -1,5 +1,6 @@
-export const priceMutation = {
-  createClient(parent, args, ctx, info) {
-    createClient();
-  }
+import { deletePrice as deleteP } from "../../db/instances";
+const deletePrice = (parent, { id }, { PricePostgreSql }, info) => {
+  return deleteP(PricePostgreSql, id);
 };
+
+export { deletePrice };

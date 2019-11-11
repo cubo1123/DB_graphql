@@ -14,4 +14,9 @@ const updateUnit = (parent, { data, id }, { UnitPostgreSql }, info) => {
     })
     .catch(err => err);
 };
-export { createUnit, updateUnit };
+async function deleteUnit(parent, { id, newId }, ctx, info) {
+  console.log(id);
+  console.log(newId);
+  return true;
+}
+export { createUnit, updateUnit, deleteUnit };

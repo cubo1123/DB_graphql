@@ -1,10 +1,6 @@
-import { createCost as create } from "../../db/instances";
+import { deleteCost as deleteC } from "../../db/instances";
+const deleteCost = (parent, { id }, { CostPostgreSql }, info) => {
+  return deleteC(CostPostgreSql, id);
+};
 
-const createCost = (parent, args, { CostPostgreSql }, info) =>
-  create(CostPostgreSql, {
-    date: args.data.date,
-    value: args.data.value,
-    product: args.data.product
-  });
-
-export { createCost };
+export { deleteCost };

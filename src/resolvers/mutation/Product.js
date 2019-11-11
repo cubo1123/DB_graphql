@@ -6,7 +6,6 @@ import {
   getProductById,
   getProductByIdInObject
 } from "../../db/instances";
-import { response } from "express";
 const createProduct = (
   parent,
   { data },

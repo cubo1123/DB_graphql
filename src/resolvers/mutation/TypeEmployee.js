@@ -22,4 +22,10 @@ const updateTypeEmployee = (
     })
     .catch(err => err);
 };
-export { createTypeEmployee, updateTypeEmployee };
+
+async function deleteTypeEmployee(parent, { id, newId }, ctx, info) {
+  console.log(id);
+  console.log(newId);
+  return true;
+}
+export { createTypeEmployee, updateTypeEmployee, deleteTypeEmployee };

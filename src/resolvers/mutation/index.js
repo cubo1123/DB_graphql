@@ -3,10 +3,16 @@ import { createSchedule, updateSchedule } from "./Schedule";
 import { createEmployee, updateEmployee } from "./Employees";
 import { createNote } from "./Notes";
 import { createOrder } from "./Order";
-import { createProvider, updateProvider } from "./Provider";
-import { createTypeEmployee, updateTypeEmployee } from "./TypeEmployee";
-import { createUnit, updateUnit } from "./Unit";
+import { createProvider, updateProvider, deleteProvider } from "./Provider";
+import { deletePrice } from "./Price";
+import {
+  createTypeEmployee,
+  updateTypeEmployee,
+  deleteTypeEmployee
+} from "./TypeEmployee";
+import { createUnit, updateUnit, deleteUnit } from "./Unit";
 import { createProduct, updateProduct } from "./Product";
+import { deleteCost } from "./Cost";
 export default {
   createClient,
   createEmployee,
@@ -23,5 +29,10 @@ export default {
   updateTypeEmployee,
   updateUnit,
   createProduct,
-  updateProduct
+  updateProduct,
+  deleteProvider,
+  deleteTypeEmployee,
+  deleteUnit,
+  deletePrice,
+  deleteCost
 };

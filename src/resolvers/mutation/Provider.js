@@ -17,4 +17,15 @@ const updateProvider = (parent, { data, id }, { ProviderPostgreSql }, info) => {
     })
     .catch(err => err);
 };
-export { createProvider, updateProvider };
+
+async function deleteProvider(
+  parent,
+  { id, newId },
+  { ProviderPostgreSql, ProductPostgreSql },
+  info
+) {
+  console.log(id);
+  console.log(newId);
+  return true;
+}
+export { createProvider, updateProvider, deleteProvider };
