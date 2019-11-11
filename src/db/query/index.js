@@ -1,5 +1,3 @@
-import { reject } from "any-promise";
-
 const findAll = instance =>
   instance
     .findAll()

@@ -41,7 +41,8 @@ import {
   getProviders,
   getProviderById,
   createProvider,
-  updateProvider
+  updateProvider,
+  deleteProvider
 } from "./Provider";
 import {
   getSchedules,
@@ -89,6 +90,7 @@ export {
   createProduct,
   getProviders,
   getProviderById,
+  deleteProvider,
   createProvider,
   updateProvider,
   getSchedules,

@@ -1,7 +1,8 @@
 import {
   createProvider as create,
   updateProvider as update,
-  getProviderById
+  getProviderById,
+  deleteProvider as deleteP
 } from "../../db/instances/Provider";
 const createProvider = (parent, args, { ProviderPostgreSql }, info) =>
   create(ProviderPostgreSql, {
@@ -21,11 +22,19 @@ const updateProvider = (parent, { data, id }, { ProviderPostgreSql }, info) => {
 async function deleteProvider(
   parent,
   { id, newId },
-  { ProviderPostgreSql, ProductPostgreSql },
+  { ProviderPostgreSql, ProductPostgreSql, OrderPostgreSql },
   info
 ) {
-  console.log(id);
-  console.log(newId);
-  return true;
+  let promises = [];
+  await ProductPostgreSql.update(
+    { provider: newId },
+    { where: { provider: id } }
+  );
+
+  await OrderPostgreSql.update(
+    { provider: newId },
+    { where: { provider: id } }
+  );
+  return deleteP(ProviderPostgreSql, id);
 }
 export { createProvider, updateProvider, deleteProvider };
