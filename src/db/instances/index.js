@@ -56,7 +56,13 @@ import {
   createTypeEmployee,
   updateTypeEmployee
 } from "./TypeEmployee";
-import { getUnits, getUnitsById, createUnit, updateUnit } from "./Unit";
+import {
+  getUnits,
+  getUnitsById,
+  createUnit,
+  updateUnit,
+  deleteUnit
+} from "./Unit";
 
 export {
   getCosts,
@@ -87,6 +93,7 @@ export {
   getProducts,
   deletePrice,
   getProductById,
+  deleteUnit,
   createProduct,
   getProviders,
   getProviderById,

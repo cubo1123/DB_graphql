@@ -1,7 +1,8 @@
 import {
   createUnit as create,
   updateUnit as update,
-  getUnitsById
+  getUnitsById,
+  deleteUnit as deleteU
 } from "../../db/instances/Unit";
 
 const createUnit = (parent, args, { UnitPostgreSql }, info) =>
@@ -14,9 +15,13 @@ const updateUnit = (parent, { data, id }, { UnitPostgreSql }, info) => {
     })
     .catch(err => err);
 };
-async function deleteUnit(parent, { id, newId }, ctx, info) {
-  console.log(id);
-  console.log(newId);
-  return true;
+async function deleteUnit(
+  parent,
+  { id, newId },
+  { ProductPostgreSql, UnitPostgreSql },
+  info
+) {
+  await ProductPostgreSql.update({ unit: newId }, { where: { unit: id } });
+  return deleteU(UnitPostgreSql, id);
 }
 export { createUnit, updateUnit, deleteUnit };

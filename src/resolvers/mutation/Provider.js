@@ -25,7 +25,6 @@ async function deleteProvider(
   { ProviderPostgreSql, ProductPostgreSql, OrderPostgreSql },
   info
 ) {
-  let promises = [];
   await ProductPostgreSql.update(
     { provider: newId },
     { where: { provider: id } }
