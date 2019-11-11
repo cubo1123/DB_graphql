@@ -7,6 +7,7 @@ import Cost from "./Cost";
 import Price from "./Price";
 import Order from "./Order";
 import OrderContain from "./OrderContain";
+import Product from "./Product";
 const resolvers = {
   Query,
   Mutation,
@@ -16,7 +17,8 @@ const resolvers = {
   Cost,
   Price,
   Order,
-  OrderContain
+  OrderContain,
+  Product
 };
 
 export { resolvers };

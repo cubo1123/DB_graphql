@@ -1,6 +1,8 @@
 import Sequelize from "sequelize";
 import { ProviderPostgreSql } from "./providers";
 import { UnitPostgreSql } from "./units";
+import { CostPostgreSql } from "./costs";
+import { PricePostgreSql } from "./prices";
 class Product extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
@@ -41,9 +43,12 @@ class Product extends Sequelize.Model {
       { sequelize, timestamps: false }
     );
   }
-  static associate(models) {
-    this.hasOne(UnitPostgreSql);
-    this.hasOne(ProviderPostgreSql);
+
+  static associate({ models }) {
+    this.belongsTo(models.Unit, { foreignKey: "id" });
+    this.belongsTo(models.Provider, { foreignKey: "id" });
+    this.hasMany(models.Cost, { foreignKey: "product" });
+    this.hasMany(models.Price, { foreignKey: "product" });
   }
 }
 

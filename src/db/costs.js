@@ -33,8 +33,8 @@ class Cost extends Sequelize.Model {
     );
   }
 
-  static associate(models) {
-    this.hasOne(models.ProductPostgreSql);
+  static associate({ models }) {
+    this.belongsTo(models.Product, { foreignKey: "id" });
   }
 }
 

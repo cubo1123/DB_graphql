@@ -1,8 +1,12 @@
 import {
   createProduct as create,
   createCost,
-  createPrice
+  createPrice,
+  updateProduct as update,
+  getCostById,
+  getPricesById
 } from "../../db/instances";
+import { response } from "express";
 const createProduct = (
   parent,
   { data },
@@ -28,5 +32,16 @@ const createProduct = (
         .catch(err => err);
     })
     .catch();
+};
+
+const updateProduct = (
+  parent,
+  { data, id },
+  { ProductPostgreSql, CostPostgreSql, PricePostgreSql },
+  info
+) => {
+  return getCostById(CostPostgreSql, id)
+    .then(response => {})
+    .catch(err => {});
 };
 export { createProduct };

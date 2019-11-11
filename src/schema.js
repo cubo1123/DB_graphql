@@ -225,6 +225,8 @@ export const typeDefs = gql`
     onStock: Float!
     provider: Provider
     unit: Unit!
+    cost: [Cost!]!
+    price: [Price!]!
   }
 
   type Unit {

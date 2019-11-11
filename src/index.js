@@ -18,7 +18,6 @@ import {
   TypeEmployeePostgreSql,
   UnitPostgreSql
 } from "./db";
-import { from } from "apollo-link";
 
 const schema = new ApolloServer({
   typeDefs,
@@ -42,6 +41,9 @@ const schema = new ApolloServer({
     UnitPostgreSql: UnitPostgreSql.init(sequelize)
   }
 });
+ProductPostgreSql.associate(sequelize);
+PricePostgreSql.associate(sequelize);
+CostPostgreSql.associate(sequelize);
 
 const app = express();
 schema.applyMiddleware({ app });

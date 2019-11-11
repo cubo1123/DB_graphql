@@ -1,5 +1,5 @@
 import Sequelize from "sequelize";
-
+import { ProductPostgreSql } from "./products";
 class Price extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
@@ -32,7 +32,10 @@ class Price extends Sequelize.Model {
       { sequelize, timestamps: false }
     );
   }
+
+  static associate({ models }) {
+    this.belongsTo(models.Product, { foreignKey: "id" });
+  }
 }
-Price;
 
 export { Price as PricePostgreSql };
