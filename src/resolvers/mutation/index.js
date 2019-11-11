@@ -6,7 +6,7 @@ import { createOrder } from "./Order";
 import { createProvider, updateProvider } from "./Provider";
 import { createTypeEmployee, updateTypeEmployee } from "./TypeEmployee";
 import { createUnit, updateUnit } from "./Unit";
-import { createProduct } from "./Product";
+import { createProduct, updateProduct } from "./Product";
 export default {
   createClient,
   createEmployee,
@@ -22,5 +22,6 @@ export default {
   updateProvider,
   updateTypeEmployee,
   updateUnit,
-  createProduct
+  createProduct,
+  updateProduct
 };

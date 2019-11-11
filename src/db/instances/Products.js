@@ -1,7 +1,6 @@
 import { findAll, findOne, create, updateOne } from "../query";
 import { CostPostgreSql } from "../costs";
 import { PricePostgreSql } from "../prices";
-import Sequelize from "sequelize";
 const getProducts = db => findAll(db);
 const getProductById = (db, id) => {
   return db
@@ -17,20 +16,35 @@ const getProductById = (db, id) => {
       ]
     })
     .then(response => {
-      console.log("Exito");
-      console.log(JSON.stringify(response));
-      return response;
+      return response ? response : [];
     })
     .catch(err => {
-      console.log("fracaso");
-      console.log(err);
       return err;
     });
 };
+const getProductByIdInObject = (db, id) => {
+  return db.findOne({
+    where: { id },
+    include: [
+      {
+        model: CostPostgreSql
+      },
+      {
+        model: PricePostgreSql
+      }
+    ]
+  });
+};
 const createProduct = (db, data) => create(db, data);
 const updateProduct = (db, data, id) => {
-  return updateOne(db, id)
-    .then(response => {})
-    .catch();
+  return updateOne(db, data, id)
+    .then(response => response)
+    .catch(err => err);
 };
-export { getProductById, getProducts, createProduct, updateProduct };
+export {
+  getProductById,
+  getProducts,
+  createProduct,
+  updateProduct,
+  getProductByIdInObject
+};

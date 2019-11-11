@@ -19,6 +19,7 @@ const updateOne = (instance, data, id) =>
     .update(data, { where: { id } })
     .then(response => response)
     .catch(err => err);
+
 const create = (instance, data) =>
   instance
     .create(data)

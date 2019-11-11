@@ -3,8 +3,8 @@ import {
   createCost,
   createPrice,
   updateProduct as update,
-  getCostById,
-  getPricesById
+  getProductById,
+  getProductByIdInObject
 } from "../../db/instances";
 import { response } from "express";
 const createProduct = (
@@ -34,14 +34,31 @@ const createProduct = (
     .catch();
 };
 
-const updateProduct = (
+async function updateProduct(
   parent,
   { data, id },
   { ProductPostgreSql, CostPostgreSql, PricePostgreSql },
   info
-) => {
-  return getCostById(CostPostgreSql, id)
-    .then(response => {})
-    .catch(err => {});
-};
-export { createProduct };
+) {
+  let promises = [];
+  if (data.cost) {
+    await createCost(CostPostgreSql, { value: data.cost, product: id });
+    delete data.cost;
+  }
+
+  if (data.price) {
+    await createPrice(PricePostgreSql, { value: data.price, product: id });
+    delete data.price;
+  }
+
+  if (data) {
+    await update(ProductPostgreSql, data, id)
+      .then(response => {
+        return response;
+      })
+      .catch(err => err);
+  }
+
+  return getProductByIdInObject(ProductPostgreSql, id);
+}
+export { createProduct, updateProduct };

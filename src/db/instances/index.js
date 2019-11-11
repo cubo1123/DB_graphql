@@ -30,7 +30,13 @@ import {
 } from "./OrderContain";
 import { getOrder, getOrderById, createOrder } from "./Order";
 import { getPrices, getPricesById, createPrice } from "./Price";
-import { getProducts, getProductById, createProduct } from "./Products";
+import {
+  getProducts,
+  getProductById,
+  createProduct,
+  updateProduct,
+  getProductByIdInObject
+} from "./Products";
 import {
   getProviders,
   getProviderById,
@@ -98,5 +104,7 @@ export {
   updateSchedule,
   updateTypeEmployee,
   updateUnit,
-  createNoteContainsMany
+  createNoteContainsMany,
+  updateProduct,
+  getProductByIdInObject
 };

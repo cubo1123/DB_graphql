@@ -29,7 +29,7 @@ export const typeDefs = gql`
     updateUnit(data: UpdateUnit!, id: ID!): Unit!
 
     createProduct(data: CreateProduct!): Product!
-    updateProduct(data: UpdateProduct!): Product!
+    updateProduct(data: UpdateProduct!, id: ID!): Product!
   }
 
   input UpdateEmployee {
@@ -156,17 +156,17 @@ export const typeDefs = gql`
   }
 
   type Query {
-    clients(id: String): [Client!]!
-    costs(id: String): [Cost!]!
-    employees(id: String): [Employee!]!
-    notes(id: String): [Note!]!
-    orders(id: String): [Order!]!
-    prices(id: String): [Price!]!
-    products(id: String): [Product]!
-    providers(id: String): [Provider!]!
-    schedules(id: String): [Schedule!]!
-    typeEmployees(id: String): [TypeEmployee!]!
-    units(id: String): [Unit!]!
+    clients(id: ID!): [Client!]!
+    costs(id: ID!): [Cost!]!
+    employees(id: ID!): [Employee!]!
+    notes(id: ID!): [Note!]!
+    orders(id: ID!): [Order!]!
+    prices(id: ID!): [Price!]!
+    products(id: ID!): [Product]!
+    providers(id: ID!): [Provider!]!
+    schedules(id: ID!): [Schedule!]!
+    typeEmployees(id: ID!): [TypeEmployee!]!
+    units(id: ID!): [Unit!]!
   }
   type Employee {
     id: ID!
