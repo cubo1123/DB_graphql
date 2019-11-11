@@ -31,7 +31,7 @@ export default {
   async clients(parent, args, { ClientPostgreSql }, info) {
     return args.id
       ? getClientByID(ClientPostgreSql, args.id)
-          .then(client => client)
+          .then(client => [client])
           .catch(err => err)
       : getClients(ClientPostgreSql)
           .then(clients => clients)
@@ -49,7 +49,7 @@ export default {
   async employees(parent, args, { EmployeePostgreSql }, info) {
     return args.id
       ? getEmployeeByID(EmployeePostgreSql, args.id)
-          .then(employee => employee)
+          .then(employee => [employee])
           .catch(err => err)
       : getEmployees(EmployeePostgreSql)
           .then(employees => employees)
@@ -58,7 +58,7 @@ export default {
   async notes(parent, args, { NotePostgreSql }, info) {
     return args.id
       ? getNoteByID(NotePostgreSql, args.id)
-          .then(note => note)
+          .then(note => [note])
           .catch(err => err)
       : getNotes(NotePostgreSql)
           .then(notes => notes)
@@ -67,7 +67,7 @@ export default {
   async orders(parent, args, { OrderPostgreSql }, info) {
     return args.id
       ? getOrderById(OrderPostgreSql, args.id)
-          .then(order => order)
+          .then(order => [order])
           .catch(err => err)
       : getOrder(OrderPostgreSql)
           .then(orders => orders)
@@ -103,7 +103,7 @@ export default {
   async schedules(parent, args, { SchedulePostgreSql }, info) {
     return args.id
       ? getScheduleByID(SchedulePostgreSql, args.id)
-          .then(schedule => schedule)
+          .then(schedule => [schedule])
           .catch(err => err)
       : getSchedules(SchedulePostgreSql)
           .then(schedules => schedules)
@@ -112,7 +112,7 @@ export default {
   async typeEmployees(parent, args, { TypeEmployeePostgreSql }, info) {
     return args.id
       ? getTypeByID(TypeEmployeePostgreSql, args.id)
-          .then(type => type)
+          .then(type => [type])
           .catch(err => err)
       : getTypes(TypeEmployeePostgreSql)
           .then(types => types)
@@ -121,7 +121,7 @@ export default {
   async units(parent, args, { UnitPostgreSql }, info) {
     return args.id
       ? getUnitsById(UnitPostgreSql, args.id)
-          .then(unit => unit)
+          .then(unit => [unit])
           .catch(err => err)
       : getUnits(UnitPostgreSql)
           .then(units => units)

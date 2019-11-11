@@ -162,17 +162,17 @@ export const typeDefs = gql`
   }
 
   type Query {
-    clients(id: ID!): [Client!]!
-    costs(id: ID!): [Cost!]!
-    employees(id: ID!): [Employee!]!
-    notes(id: ID!): [Note!]!
-    orders(id: ID!): [Order!]!
-    prices(id: ID!): [Price!]!
-    products(id: ID!): [Product]!
-    providers(id: ID!): [Provider!]!
-    schedules(id: ID!): [Schedule!]!
-    typeEmployees(id: ID!): [TypeEmployee!]!
-    units(id: ID!): [Unit!]!
+    clients(id: ID): [Client!]!
+    costs(id: ID): [Cost!]!
+    employees(id: ID): [Employee!]!
+    notes(id: ID): [Note!]!
+    orders(id: ID): [Order!]!
+    prices(id: ID): [Price!]!
+    products(id: ID): [Product]!
+    providers(id: ID): [Provider!]!
+    schedules(id: ID): [Schedule!]!
+    typeEmployees(id: ID): [TypeEmployee!]!
+    units(id: ID): [Unit!]!
   }
   type Employee {
     id: ID!
@@ -184,7 +184,7 @@ export const typeDefs = gql`
     startDate: String!
     status: ENUMStatus!
     salary: Float!
-    endDate: String!
+    endDate: String
   }
 
   type TypeEmployee {

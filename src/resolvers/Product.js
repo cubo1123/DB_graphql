@@ -2,7 +2,7 @@ import {
   getUnitsById,
   getProviderById,
   getPricesById,
-  getCostById
+  getCostByProductId
 } from "../db/instances";
 export default {
   async provider(parent, args, { ProviderPostgreSql }, info) {
@@ -15,6 +15,6 @@ export default {
     return getPricesById(PricePostgreSql, parent.id);
   },
   async cost(parent, args, { CostPostgreSql }, ctx) {
-    return getCostById(CostPostgreSql, parent.id);
+    return getCostByProductId(CostPostgreSql, parent.id);
   }
 };

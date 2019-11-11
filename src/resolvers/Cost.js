@@ -1,9 +1,9 @@
-import { getCostById } from "../db/instances";
+import { getProductByIdInObject } from "../db/instances";
 export default {
-  async product(parent, args, { CostPostgreSql }, info) {
-    return getCostById(CostPostgreSql, parent.product)
-      .then(cost => {
-        return cost;
+  async product(parent, args, { ProductPostgreSql }, info) {
+    return getProductByIdInObject(ProductPostgreSql, parent.product)
+      .then(product => {
+        return product;
       })
       .catch(err => {
         return err;

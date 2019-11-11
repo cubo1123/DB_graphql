@@ -4,7 +4,13 @@ import {
   createClient,
   updateClient
 } from "./Clients";
-import { getCosts, getCostById, createCost, deleteCost } from "./Cost";
+import {
+  getCosts,
+  getCostById,
+  createCost,
+  deleteCost,
+  getCostByProductId
+} from "./Cost";
 import {
   getEmployeeByID,
   getEmployees,
@@ -109,6 +115,7 @@ export {
   getTypes,
   createTypeEmployee,
   getUnits,
+  getCostByProductId,
   getUnitsById,
   createUnit,
   updateClient,

@@ -39,7 +39,6 @@ async function updateProduct(
   { ProductPostgreSql, CostPostgreSql, PricePostgreSql },
   info
 ) {
-  let promises = [];
   if (data.cost) {
     await createCost(CostPostgreSql, { value: data.cost, product: id });
     delete data.cost;
@@ -51,11 +50,7 @@ async function updateProduct(
   }
 
   if (data) {
-    await update(ProductPostgreSql, data, id)
-      .then(response => {
-        return response;
-      })
-      .catch(err => err);
+    await update(ProductPostgreSql, data, id);
   }
 
   return getProductByIdInObject(ProductPostgreSql, id);

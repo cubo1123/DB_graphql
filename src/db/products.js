@@ -17,12 +17,12 @@ class Product extends Sequelize.Model {
         name: {
           allowNull: false,
           type: Sequelize.STRING(30),
-          validate: { isAlpha: true, notEmpty: true }
+          validate: { is: /^[a-zA-Z\s]*$/i, notEmpty: true }
         },
         description: {
           allowNull: false,
           type: Sequelize.STRING(30),
-          validate: { isAlpha: true, notEmpty: true }
+          validate: { is: /^[a-zA-Z\s]*$/i, notEmpty: true }
         },
         onStock: {
           allowNull: false,
