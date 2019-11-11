@@ -54,7 +54,8 @@ import {
   getTypeByID,
   getTypes,
   createTypeEmployee,
-  updateTypeEmployee
+  updateTypeEmployee,
+  deleteType
 } from "./TypeEmployee";
 import {
   getUnits,
@@ -80,6 +81,7 @@ export {
   getNoteByID,
   getNotes,
   createNote,
+  deleteType,
   getOrdersContain,
   getOrdersContainById,
   createOrderContain,

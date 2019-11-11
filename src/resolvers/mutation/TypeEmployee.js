@@ -1,7 +1,8 @@
 import {
   createTypeEmployee as create,
   updateTypeEmployee as update,
-  getTypeByID
+  getTypeByID,
+  deleteType as deleteT
 } from "../../db/instances/TypeEmployee";
 
 const createTypeEmployee = (parent, args, { TypeEmployeePostgreSql }, info) =>
@@ -23,9 +24,17 @@ const updateTypeEmployee = (
     .catch(err => err);
 };
 
-async function deleteTypeEmployee(parent, { id, newId }, ctx, info) {
-  console.log(id);
-  console.log(newId);
+async function deleteTypeEmployee(
+  parent,
+  { id, newId },
+  { TypeEmployeePostgreSql, EmployeePostgreSql },
+  info
+) {
+  await EmployeePostgreSql.update(
+    { typeEmployee: newId },
+    { where: { typeEmployee: id } }
+  );
+  return deleteT(TypeEmployeePostgreSql, id);
   return true;
 }
 export { createTypeEmployee, updateTypeEmployee, deleteTypeEmployee };
