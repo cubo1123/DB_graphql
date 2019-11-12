@@ -5,12 +5,8 @@ import {
   getCostById,
   getEmployeeByID,
   getEmployees,
-  getNoteContainByID,
-  getNotesContain,
   getNoteByID,
   getNotes,
-  getOrdersContain,
-  getOrdersContainById,
   getOrder,
   getOrderById,
   getPrices,
@@ -94,7 +90,7 @@ export default {
   async providers(parent, args, { ProviderPostgreSql }, info) {
     return args.id
       ? getProviderById(ProviderPostgreSql, args.id)
-          .then(provider => provider)
+          .then(provider => [provider])
           .catch(err => err)
       : getProviders(ProviderPostgreSql)
           .then(providers => providers)
