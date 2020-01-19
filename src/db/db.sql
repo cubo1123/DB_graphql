@@ -1,106 +1,44 @@
-CREATE TABLE "Units" (
-  id serial NOT NULL PRIMARY KEY,
-  name varchar(30) NOT NULL
-);
-CREATE TABLE "Clients" (
-  id serial NOT NULL PRIMARY KEY,
-  name varchar(50) NOT NULL,
-  "lastName" varchar(50) NOT NULL,
-  address varchar(100) NOT NULL,
-  telephone varchar(30) NOT NULL,
-  "creditAvailable" float(8) NOT NULL,
-  "creditUsed" float(8) NOT NULL
-);
-CREATE TABLE "Providers" (
+CREATE TABLE "Contestants" (
   id serial NOT NULL PRIMARY KEY,
   name varchar(30) NOT NULL,
-  telephone varchar(15) NOT NULL,
-  address varchar(50) NOT NULL
+  description varchar(30) NOT NULL
 );
-CREATE TABLE "Schedules" (
-  id serial NOT NULL,
-  start time NOT NULL,
-  finish time NOT NULL,
-  PRIMARY KEY(id)
-);
-CREATE TABLE "TypeEmployees" (
+CREATE TABLE "JudgeTypes" (
   id serial NOT NULL PRIMARY KEY,
-  description varchar(30) NOT NULL,
-  job varchar(30) NOT NULL
+  kind varchar(10) NOT NULL
 );
-CREATE TABLE "Products" (
+CREATE TABLE "Judges" (
+  judge varchar(10) NOT NULL,
+  password varchar(30) NOT NULL,
+  kind serial NOT NULL,
+  PRIMARY KEY (judge),
+  FOREIGN KEY (kind) REFERENCES "JudgeTypes"(id) ON UPDATE CASCADE ON DELETE RESTRICT
+);
+CREATE TABLE "Events" (id serial NOT NULL, PRIMARY KEY (id));
+CREATE TABLE "Participations" (
   id serial NOT NULL,
-  name varchar(30) NOT NULL,
-  description varchar(30) NOT NULL,
-  "onStock" float(8) NOT NULL,
-  provider serial NOT NULL,
-  unit serial NOT NULL,
+  contestant serial NOT NULL,
+  event serial NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (provider) REFERENCES "Providers"(id) ON UPDATE CASCADE ON DELETE RESTRICT,
-  FOREIGN KEY (unit) REFERENCES "Units"(id) ON UPDATE CASCADE ON DELETE RESTRICT
+  FOREIGN KEY (contestant) REFERENCES "Contestants"(id) ON UPDATE CASCADE ON DELETE RESTRICT,
+  FOREIGN KEY (event) REFERENCES "Events"(id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
-CREATE TABLE "Costs" (
-  id serial NOT NULL PRIMARY KEY,
-  date timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  value float(8) NOT NULL,
-  product serial NOT NULL,
-  FOREIGN KEY (product) REFERENCES "Products"(id) ON UPDATE CASCADE ON DELETE CASCADE
-);
-CREATE TABLE "Prices" (
+CREATE TABLE "Evaluations" (
   id serial NOT NULL,
-  value float(8) NOT NULL,
-  date timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  product serial NOT NULL,
-  FOREIGN KEY (product) REFERENCES "Products"(id) ON UPDATE CASCADE ON DELETE CASCADE,
-  PRIMARY KEY(id)
-);
-CREATE TABLE "Employees" (
-  id serial NOT NULL,
-  name varchar(30) NOT NULL,
-  "lastName" varchar(50) NOT NULL,
-  address varchar(100) NOT NULL,
-  "typeEmployee" serial NOT NULL,
-  schedule serial NOT NULL,
-  "startDate" timestamptz NOT NULL,
-  status varchar(30) NOT NULL,
-  salary float(8) NOT NULL,
-  "endDate" timestamptz,
-  PRIMARY KEY(id),
-  FOREIGN KEY("typeEmployee") REFERENCES "TypeEmployees"(id) ON UPDATE CASCADE ON DELETE RESTRICT,
-  FOREIGN KEY(schedule) REFERENCES "Schedules"(id) ON UPDATE CASCADE ON DELETE RESTRICT
-);
-CREATE TABLE "Notes" (
-  id serial NOT NULL,
-  date timestamptz DEFAULT CURRENT_TIMESTAMP,
-  client serial NOT NULL,
-  employee serial NOT NULL,
-  PRIMARY KEY(id),
-  FOREIGN KEY (client) REFERENCES "Clients"(id) ON UPDATE CASCADE ON DELETE RESTRICT,
-  FOREIGN KEY (employee) REFERENCES "Employees"(id) ON UPDATE CASCADE ON DELETE RESTRICT
-);
-CREATE TABLE "NoteContains" (
-  id serial NOT NULL,
-  quantity double precision NOT NULL,
-  product serial NOT NULL,
-  note serial NOT NULL,
+  participation serial NOT NULL,
+  judge varchar(10) NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (product) REFERENCES "Products"(id) ON UPDATE CASCADE ON DELETE RESTRICT,
-  FOREIGN KEY (note) REFERENCES "Notes"(id) ON UPDATE CASCADE ON DELETE RESTRICT
+  FOREIGN KEY (participation) REFERENCES "Participations"(id) ON UPDATE CASCADE ON DELETE RESTRICT,
+  FOREIGN KEY (judge) REFERENCES "Judges"(judge) ON UPDATE CASCADE ON DELETE RESTRICT
 );
-CREATE TABLE "Orders" (
+CREATE TABLE "Results" (
   id serial NOT NULL,
-  provider serial NOT NULL,
-  "createdAt" timestamptz DEFAULT CURRENT_TIMESTAMP,
-  "arrivedAt" timestamptz,
-  PRIMARY KEY(id),
-  FOREIGN KEY (provider) REFERENCES "Providers"(id) ON UPDATE CASCADE ON DELETE RESTRICT
-);
-CREATE TABLE "OrderContains" (
-  id serial NOT NULL,
-  product serial NOT NULL,
-  "belongTo" serial NOT NULL,
-  quantity float(8) NOT NULL,
-  PRIMARY KEY(id),
-  FOREIGN KEY (product) REFERENCES "Products"(id) ON UPDATE CASCADE ON DELETE RESTRICT,
-  FOREIGN KEY ("belongTo") REFERENCES "Orders"(id) ON UPDATE CASCADE ON DELETE RESTRICT
+  calification float(5) NOT NULL,
+  description varchar(30) NOT NULL,
+  timestamp timestamptz DEFAULT CURRENT_TIMESTAMP,
+  event serial NOT NULL,
+  contestant serial NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (event) REFERENCES "Events"(id) ON UPDATE CASCADE ON DELETE RESTRICT,
+  FOREIGN KEY (contestant) REFERENCES "Contestants"(id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
